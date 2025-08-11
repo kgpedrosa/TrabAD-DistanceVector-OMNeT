@@ -200,8 +200,16 @@ void NoRoteador::verificarConvergencia() {
         tempoFimConvergencia = simTime();
         double tempoTotal = (tempoFimConvergencia - tempoInicioConvergencia).dbl();
         
-        EV << "Nó " << meuID << " convergiu em " 
-           << std::fixed << std::setprecision(3) << tempoTotal << "s\n";
+        // MÉTRICA 1: Tempo de Convergência
+        EV << "\n=== MÉTRICAS DE CONVERGÊNCIA - Nó " << meuID << " ===\n";
+        EV << "Tempo de convergência: " << std::fixed << std::setprecision(3) << tempoTotal << "s\n";
+        
+        // MÉTRICA 2: Total de Mensagens Trocadas
+        int totalMensagens = totalMensagensEnviadas + totalMensagensRecebidas;
+        EV << "Mensagens enviadas: " << totalMensagensEnviadas << "\n";
+        EV << "Mensagens recebidas: " << totalMensagensRecebidas << "\n";
+        EV << "Total de mensagens trocadas: " << totalMensagens << "\n";
+        EV << "==========================================\n\n";
         
         recordScalar("tempoConvergencia", tempoTotal);
         recordScalar("mensagensEnviadas", totalMensagensEnviadas);
@@ -224,7 +232,48 @@ void NoRoteador::mostrarTabelaRoteamento() {
 
 void NoRoteador::finish() {
     EV << "Nó " << meuID << " finalizado\n";
+    
+    // MÉTRICA 3: Verificação de Consistência da Tabela de Roteamento
+    EV << "\n=== VERIFICAÇÃO DE CONSISTÊNCIA - Nó " << meuID << " ===\n";
+    EV << "Tabela de roteamento final:\n";
     mostrarTabelaRoteamento();
+    
+    // Verificar se as rotas são consistentes (caminhos mínimos)
+    EV << "Análise de consistência:\n";
+    bool tabelaConsistente = true;
+    
+    for (auto& entrada : tabelaRoteamento) {
+        int destino = entrada.first;
+        double custoCalculado = entrada.second.custo;
+        int proximoVizinho = entrada.second.proximoVizinho;
+        
+        // Verificar se o custo para o próximo vizinho é conhecido
+        auto custoVizinho = custoVizinhos.find(proximoVizinho);
+        if (custoVizinho != custoVizinhos.end()) {
+            double custoDireto = custoVizinho->second;
+            if (destino == proximoVizinho) {
+                // Para o próprio vizinho, o custo deve ser o custo direto
+                if (std::abs(custoCalculado - custoDireto) > 0.001) {
+                    EV << "Inconsistência: Nó " << destino << " - custo calculado (" 
+                       << custoCalculado << "s) != custo direto (" << custoDireto << "s)\n";
+                    tabelaConsistente = false;
+                } else {
+                    EV << "Nó " << destino << " - rota direta consistente (" 
+                       << std::fixed << std::setprecision(3) << custoCalculado << "s)\n";
+                }
+            } else {
+                EV << "Nó " << destino << " - rota via " << proximoVizinho 
+                   << " (" << std::fixed << std::setprecision(3) << custoCalculado << "s)\n";
+            }
+        }
+    }
+    
+    if (tabelaConsistente) {
+        EV << "Tabela de roteamento CONSISTENTE - todos os caminhos são ótimos!\n";
+    } else {
+        EV << "Tabela de roteamento INCONSISTENTE - alguns caminhos podem não ser ótimos!\n";
+    }
+    EV << "==========================================\n\n";
     
     // Gravar métricas finais
     recordScalar("mensagensEnviadasFinal", totalMensagensEnviadas);

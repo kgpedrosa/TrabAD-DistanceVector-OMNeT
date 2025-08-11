@@ -1,8 +1,8 @@
 version 3
-run Estrela-0-20250811-02:19:18-6324
+run Estrela-0-20250811-12:31:15-1688
 attr configname Estrela
-attr datetime 20250811-02:19:18
-attr datetimef 20250811-021918
+attr datetime 20250811-12:31:15
+attr datetimef 20250811-123115
 attr experiment Estrela
 attr inifile omnetpp.ini
 attr iterationvars ""
@@ -10,7 +10,7 @@ attr iterationvarsd ""
 attr iterationvarsf ""
 attr measurement ""
 attr network TopologiaEstrela
-attr processid 6324
+attr processid 1688
 attr repetition 0
 attr replication #0
 attr resultdir results
@@ -24,27 +24,27 @@ config repeat 1
 config **.recordScalar true
 config **.recordVector true
 
-scalar TopologiaEstrela.no[0] mensagensEnviadas 12
-scalar TopologiaEstrela.no[0] mensagensRecebidas 7
-scalar TopologiaEstrela.no[0] tempoConvergencia 2.01
-scalar TopologiaEstrela.no[1] mensagensEnviadas 3
-scalar TopologiaEstrela.no[1] mensagensRecebidas 3
-scalar TopologiaEstrela.no[1] tempoConvergencia 3.01
-scalar TopologiaEstrela.no[4] mensagensEnviadas 3
-scalar TopologiaEstrela.no[4] mensagensRecebidas 3
-scalar TopologiaEstrela.no[4] tempoConvergencia 3.012
-scalar TopologiaEstrela.no[2] mensagensEnviadas 3
-scalar TopologiaEstrela.no[2] mensagensRecebidas 3
-scalar TopologiaEstrela.no[2] tempoConvergencia 3.015
-scalar TopologiaEstrela.no[6] mensagensEnviadas 3
-scalar TopologiaEstrela.no[6] mensagensRecebidas 3
-scalar TopologiaEstrela.no[6] tempoConvergencia 3.018
-scalar TopologiaEstrela.no[3] mensagensEnviadas 3
-scalar TopologiaEstrela.no[3] mensagensRecebidas 3
-scalar TopologiaEstrela.no[3] tempoConvergencia 3.02
-scalar TopologiaEstrela.no[5] mensagensEnviadas 3
-scalar TopologiaEstrela.no[5] mensagensRecebidas 3
-scalar TopologiaEstrela.no[5] tempoConvergencia 3.025
+scalar TopologiaEstrela.no[1] tempoConvergencia 8.01
+scalar TopologiaEstrela.no[1] mensagensEnviadas 8
+scalar TopologiaEstrela.no[1] mensagensRecebidas 8
+scalar TopologiaEstrela.no[0] tempoConvergencia 8.01
+scalar TopologiaEstrela.no[0] mensagensEnviadas 48
+scalar TopologiaEstrela.no[0] mensagensRecebidas 43
+scalar TopologiaEstrela.no[4] tempoConvergencia 8.012
+scalar TopologiaEstrela.no[4] mensagensEnviadas 8
+scalar TopologiaEstrela.no[4] mensagensRecebidas 8
+scalar TopologiaEstrela.no[2] tempoConvergencia 8.015
+scalar TopologiaEstrela.no[2] mensagensEnviadas 8
+scalar TopologiaEstrela.no[2] mensagensRecebidas 8
+scalar TopologiaEstrela.no[6] tempoConvergencia 8.018
+scalar TopologiaEstrela.no[6] mensagensEnviadas 8
+scalar TopologiaEstrela.no[6] mensagensRecebidas 8
+scalar TopologiaEstrela.no[3] tempoConvergencia 8.02
+scalar TopologiaEstrela.no[3] mensagensEnviadas 8
+scalar TopologiaEstrela.no[3] mensagensRecebidas 8
+scalar TopologiaEstrela.no[5] tempoConvergencia 8.025
+scalar TopologiaEstrela.no[5] mensagensEnviadas 8
+scalar TopologiaEstrela.no[5] mensagensRecebidas 8
 par TopologiaEstrela.no[0].porta$o[0].channel typename "\"ned.DelayChannel\""
 par TopologiaEstrela.no[0].porta$o[0].channel disabled false
 attr mutable ""
@@ -119,38 +119,38 @@ attr mutable ""
 attr unit s
 par TopologiaEstrela.no[0] typename "\"NoRoteador\""
 par TopologiaEstrela.no[0] meuNumero 0
-scalar TopologiaEstrela.no[0] mensagensEnviadasFinal 30
-scalar TopologiaEstrela.no[0] mensagensRecebidasFinal 36
-scalar TopologiaEstrela.no[0] tempoConvergenciaFinal 0
+scalar TopologiaEstrela.no[0] mensagensEnviadasFinal 78
+scalar TopologiaEstrela.no[0] mensagensRecebidasFinal 78
+scalar TopologiaEstrela.no[0] tempoConvergenciaFinal 8.01
 par TopologiaEstrela.no[1] typename "\"NoRoteador\""
 par TopologiaEstrela.no[1] meuNumero 1
-scalar TopologiaEstrela.no[1] mensagensEnviadasFinal 6
-scalar TopologiaEstrela.no[1] mensagensRecebidasFinal 5
-scalar TopologiaEstrela.no[1] tempoConvergenciaFinal 0
+scalar TopologiaEstrela.no[1] mensagensEnviadasFinal 13
+scalar TopologiaEstrela.no[1] mensagensRecebidasFinal 13
+scalar TopologiaEstrela.no[1] tempoConvergenciaFinal 8.01
 par TopologiaEstrela.no[2] typename "\"NoRoteador\""
 par TopologiaEstrela.no[2] meuNumero 2
-scalar TopologiaEstrela.no[2] mensagensEnviadasFinal 6
-scalar TopologiaEstrela.no[2] mensagensRecebidasFinal 5
-scalar TopologiaEstrela.no[2] tempoConvergenciaFinal 0
+scalar TopologiaEstrela.no[2] mensagensEnviadasFinal 13
+scalar TopologiaEstrela.no[2] mensagensRecebidasFinal 13
+scalar TopologiaEstrela.no[2] tempoConvergenciaFinal 8.015
 par TopologiaEstrela.no[3] typename "\"NoRoteador\""
 par TopologiaEstrela.no[3] meuNumero 3
-scalar TopologiaEstrela.no[3] mensagensEnviadasFinal 6
-scalar TopologiaEstrela.no[3] mensagensRecebidasFinal 5
-scalar TopologiaEstrela.no[3] tempoConvergenciaFinal 0
+scalar TopologiaEstrela.no[3] mensagensEnviadasFinal 13
+scalar TopologiaEstrela.no[3] mensagensRecebidasFinal 13
+scalar TopologiaEstrela.no[3] tempoConvergenciaFinal 8.02
 par TopologiaEstrela.no[4] typename "\"NoRoteador\""
 par TopologiaEstrela.no[4] meuNumero 4
-scalar TopologiaEstrela.no[4] mensagensEnviadasFinal 6
-scalar TopologiaEstrela.no[4] mensagensRecebidasFinal 5
-scalar TopologiaEstrela.no[4] tempoConvergenciaFinal 0
+scalar TopologiaEstrela.no[4] mensagensEnviadasFinal 13
+scalar TopologiaEstrela.no[4] mensagensRecebidasFinal 13
+scalar TopologiaEstrela.no[4] tempoConvergenciaFinal 8.012
 par TopologiaEstrela.no[5] typename "\"NoRoteador\""
 par TopologiaEstrela.no[5] meuNumero 5
-scalar TopologiaEstrela.no[5] mensagensEnviadasFinal 6
-scalar TopologiaEstrela.no[5] mensagensRecebidasFinal 5
-scalar TopologiaEstrela.no[5] tempoConvergenciaFinal 0
+scalar TopologiaEstrela.no[5] mensagensEnviadasFinal 13
+scalar TopologiaEstrela.no[5] mensagensRecebidasFinal 13
+scalar TopologiaEstrela.no[5] tempoConvergenciaFinal 8.025
 par TopologiaEstrela.no[6] typename "\"NoRoteador\""
 par TopologiaEstrela.no[6] meuNumero 6
-scalar TopologiaEstrela.no[6] mensagensEnviadasFinal 6
-scalar TopologiaEstrela.no[6] mensagensRecebidasFinal 5
-scalar TopologiaEstrela.no[6] tempoConvergenciaFinal 0
+scalar TopologiaEstrela.no[6] mensagensEnviadasFinal 13
+scalar TopologiaEstrela.no[6] mensagensRecebidasFinal 13
+scalar TopologiaEstrela.no[6] tempoConvergenciaFinal 8.018
 par TopologiaEstrela typename "\"TopologiaEstrela\""
 
