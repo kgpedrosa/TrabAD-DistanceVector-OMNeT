@@ -1,6 +1,8 @@
 #include "NoRoteador.h"
 #include "Mensagens_m.h"
-#include <algorithm>  // Para std::find
+#include <algorithm>
+#include <iomanip>
+#include <sstream>
 
 Define_Module(NoRoteador);
 
@@ -8,22 +10,17 @@ void NoRoteador::initialize() {
     // Passo 1: Descobrir quem sou eu
     meuID = par("meuNumero");
     
-    // Inicializar sistema de logging
-    logger = new Logger(meuID, this);
-    logger->logInicializacao(0); // Será atualizado depois
-    
-    // Inicializar métricas para avaliação
+    // Inicializar métricas
     totalMensagensEnviadas = 0;
     totalMensagensRecebidas = 0;
     tempoInicioConvergencia = simTime();
     jaConvergiu = false;
     ciclosAposConvergencia = 0;
     
-    // Passo 2: Descobrir meus vizinhos e quanto custa falar com cada um
+    // Passo 2: Descobrir meus vizinhos
     descobrirVizinhos();
     
-    // Passo 3: Começar minha tabela de roteamento
-    // Para chegar em mim mesmo, o custo é zero e o próximo sou eu mesmo
+    // Passo 3: Inicializar tabela de roteamento
     InformacaoRota paraEuMesmo;
     paraEuMesmo.custo = 0.0;
     paraEuMesmo.proximoVizinho = meuID;
@@ -31,13 +28,12 @@ void NoRoteador::initialize() {
     
     // Passo 4: Criar um timer para enviar minha tabela periodicamente
     temporizadorEnvio = new cMessage("enviarTabela");
-    scheduleAt(simTime() + 1.0, temporizadorEnvio); 
+    scheduleAt(simTime() + 1.0, temporizadorEnvio);
     
-    logger->logConfiguracaoCompleta(listaVizinhos.size());
+    EV << "Nó " << meuID << " inicializado com " << listaVizinhos.size() << " vizinhos\n";
 }
 
 void NoRoteador::descobrirVizinhos() {
-    logger->logDescobertaVizinhos();
     
     // Verificar quantas conexões eu tenho
     int numConexoes = gateSize("porta");
@@ -68,7 +64,8 @@ void NoRoteador::descobrirVizinhos() {
         custoVizinhos[idVizinho] = custoComunicacao;
         listaVizinhos.push_back(idVizinho);
         
-        logger->logVizinhoEncontrado(idVizinho, custoComunicacao);
+        EV << "Nó " << meuID << " descobriu vizinho " << idVizinho 
+           << " (custo: " << std::fixed << std::setprecision(3) << custoComunicacao << "s)\n";
     }
 }
 
@@ -80,57 +77,45 @@ void NoRoteador::handleMessage(cMessage *msg) {
         // Verificar se devemos continuar agendando
         if (jaConvergiu) {
             ciclosAposConvergencia++;
-            
-            // Dar mais tempo para garantir que todos os nós aprendam todas as rotas
-            // Especialmente importante em topologias lineares onde a informação precisa
-            // se propagar por todos os nós sequencialmente
-            if (ciclosAposConvergencia >= 5) {  // Mais 5 ciclos após convergência
-                // Parar o timer
+            if (ciclosAposConvergencia >= 5) {
                 return;
             }
         }
         
-        // Verificar se não ultrapassou o limite de tempo (18s para dar margem)
+        // Verificar limite de tempo
         if (simTime().dbl() >= 18.0) {
-            // Parar o timer para evitar ultrapassar o limite
             return;
         }
         
-        // Agendar próximo envio
-        scheduleAt(simTime() + 1.0, temporizadorEnvio); 
+        scheduleAt(simTime() + 1.0, temporizadorEnvio);
         return;
     }
     
-    // Se for uma tabela de roteamento de um vizinho
+    // Tabela de roteamento de vizinho
     if (dynamic_cast<TabelaRoteamento*>(msg)) {
         processarTabelaVizinho(msg);
         return;
     }
     
-    // Se chegou até aqui, não sei o que é essa mensagem
-    logger->logMensagemDesconhecida();
+    // Mensagem desconhecida
     delete msg;
 }
 
 void NoRoteador::enviarMinhaTabela() {
-    logger->logEnvioTabela();
-    
-    // Preparar listas com destinos e custos (uma vez só)
+    // Preparar dados da tabela
     std::vector<int> destinos;
     std::vector<double> custos;
     
     for (auto& entrada : tabelaRoteamento) {
-        destinos.push_back(entrada.first);      // Para onde posso ir
-        custos.push_back(entrada.second.custo); // Quanto custa
+        destinos.push_back(entrada.first);
+        custos.push_back(entrada.second.custo);
     }
     
-    // Para cada vizinho, enviar uma cópia da mensagem
+    // Enviar para cada vizinho
     for (int vizinho : listaVizinhos) {
-        // Criar uma mensagem com minha tabela
         TabelaRoteamento *mensagem = new TabelaRoteamento("minhaTabela");
         mensagem->setRemetente(meuID);
         
-        // Colocar as informações na mensagem
         mensagem->setDestinosArraySize(destinos.size());
         mensagem->setCustosArraySize(custos.size());
         for (size_t i = 0; i < destinos.size(); i++) {
@@ -138,8 +123,7 @@ void NoRoteador::enviarMinhaTabela() {
             mensagem->setCustos(i, custos[i]);
         }
         
-        // Enviar para o vizinho
-        // Primeiro, encontrar qual porta usar para este vizinho
+        // Encontrar porta para o vizinho
         for (int porta = 0; porta < gateSize("porta"); porta++) {
             cGate *minhaPorta = gate("porta$o", porta);
             if (!minhaPorta) continue;
@@ -152,7 +136,7 @@ void NoRoteador::enviarMinhaTabela() {
             
             if (moduloVizinho->par("meuNumero").intValue() == vizinho) {
                 send(mensagem->dup(), "porta$o", porta);
-                totalMensagensEnviadas++;  // Contar mensagem enviada
+                totalMensagensEnviadas++;
                 break;
             }
         }
@@ -164,54 +148,46 @@ void NoRoteador::processarTabelaVizinho(cMessage *msg) {
     TabelaRoteamento *tabela = check_and_cast<TabelaRoteamento*>(msg);
     int vizinhoQueEnviou = tabela->getRemetente();
     
-    totalMensagensRecebidas++;  // Contar mensagem recebida
-    logger->logRecebimentoTabela(vizinhoQueEnviou);
-    
-    // Quanto custa falar com este vizinho?
+    totalMensagensRecebidas++;
     double custoParaVizinho = custoVizinhos[vizinhoQueEnviou];
     
     bool tabelaMudou = false;
     
-    // Para cada destino que o vizinho conhece
+    // Processar cada destino da tabela do vizinho
     int numDestinos = tabela->getDestinosArraySize();
     for (int i = 0; i < numDestinos; i++) {
         int destino = tabela->getDestinos(i);
         double custoVizinhoAteDestino = tabela->getCustos(i);
-        
-        // Calcular: quanto custaria ir até este destino passando por este vizinho?
         double custoTotal = custoParaVizinho + custoVizinhoAteDestino;
         
-        // Verificar se já conheço este destino
         auto it = tabelaRoteamento.find(destino);
         if (it == tabelaRoteamento.end()) {
-            // Destino novo! Vou aprender
+            // Novo destino
             InformacaoRota novaRota;
             novaRota.custo = custoTotal;
             novaRota.proximoVizinho = vizinhoQueEnviou;
             tabelaRoteamento[destino] = novaRota;
             tabelaMudou = true;
             
-            logger->logNovoDestino(destino, vizinhoQueEnviou, custoTotal);
+            EV << "Nó " << meuID << " aprendeu rota para " << destino 
+               << " via " << vizinhoQueEnviou << " (custo: " 
+               << std::fixed << std::setprecision(3) << custoTotal << "s)\n";
         }
-        else {
-            // Já conheço este destino. Este novo caminho é melhor?
-            if (custoTotal < it->second.custo) {
-                // Sim! Vou atualizar minha tabela
-                it->second.custo = custoTotal;
-                it->second.proximoVizinho = vizinhoQueEnviou;
-                tabelaMudou = true;
-                
-                logger->logCaminhoMelhor(destino, vizinhoQueEnviou, custoTotal);
-            }
+        else if (custoTotal < it->second.custo) {
+            // Caminho melhor encontrado
+            it->second.custo = custoTotal;
+            it->second.proximoVizinho = vizinhoQueEnviou;
+            tabelaMudou = true;
+            
+            EV << "Nó " << meuID << " melhorou rota para " << destino 
+               << " via " << vizinhoQueEnviou << " (custo: " 
+               << std::fixed << std::setprecision(3) << custoTotal << "s)\n";
         }
     }
     
     if (tabelaMudou) {
-        logger->logTabelaMudou();
-        logger->logTabelaRoteamento(tabelaRoteamento, listaVizinhos);
+        mostrarTabelaRoteamento();
     } else {
-        // Se a tabela não mudou, pode ser que tenha convergido
-        logger->logTabelaNaoMudou();
         verificarConvergencia();
     }
     
@@ -219,43 +195,50 @@ void NoRoteador::processarTabelaVizinho(cMessage *msg) {
 }
 
 void NoRoteador::verificarConvergencia() {
-    // Verificar se não houve mudanças recentes (possível convergência)
-    if (!jaConvergiu) {
-        // Heurística melhorada: só convergir se tiver informações sobre todos os nós
-        // ou se já passou tempo suficiente (para evitar convergência prematura)
-        double tempoAtual = simTime().dbl();
+    if (!jaConvergiu && simTime().dbl() >= 8.0) {
+        jaConvergiu = true;
+        tempoFimConvergencia = simTime();
+        double tempoTotal = (tempoFimConvergencia - tempoInicioConvergencia).dbl();
         
-        // Em topologias lineares, o nó mais distante está a N-1 saltos
-        // Dar tempo suficiente para a informação se propagar
-        if (tempoAtual >= 8.0) {  // Tempo mínimo antes de considerar convergência
-            jaConvergiu = true;
-            tempoFimConvergencia = simTime();
-            double tempoTotal = (tempoFimConvergencia - tempoInicioConvergencia).dbl();
-            
-            logger->logConvergencia(tempoTotal);
-            logger->gravarMetricas(totalMensagensEnviadas, totalMensagensRecebidas, tempoTotal);
-        }
+        EV << "Nó " << meuID << " convergiu em " 
+           << std::fixed << std::setprecision(3) << tempoTotal << "s\n";
+        
+        recordScalar("tempoConvergencia", tempoTotal);
+        recordScalar("mensagensEnviadas", totalMensagensEnviadas);
+        recordScalar("mensagensRecebidas", totalMensagensRecebidas);
     }
 }
 
+void NoRoteador::mostrarTabelaRoteamento() {
+    EV << "Nó " << meuID << " - Tabela atualizada:\n";
+    EV << "Destino | Custo   | Próximo\n";
+    EV << "--------|---------|--------\n";
+    
+    for (auto& entrada : tabelaRoteamento) {
+        EV << std::setw(7) << entrada.first << " | "
+           << std::setw(7) << std::fixed << std::setprecision(3) << entrada.second.custo << " | "
+           << std::setw(7) << entrada.second.proximoVizinho << "\n";
+    }
+    EV << "\n";
+}
+
 void NoRoteador::finish() {
-    logger->logFinalizacao();
-    logger->logTabelaRoteamento(tabelaRoteamento, listaVizinhos);
+    EV << "Nó " << meuID << " finalizado\n";
+    mostrarTabelaRoteamento();
     
     // Gravar métricas finais
-    logger->gravarMetricasFinais(totalMensagensEnviadas, totalMensagensRecebidas, 0.0);
+    recordScalar("mensagensEnviadasFinal", totalMensagensEnviadas);
+    recordScalar("mensagensRecebidasFinal", totalMensagensRecebidas);
     
     if (jaConvergiu) {
         double tempoTotal = (tempoFimConvergencia - tempoInicioConvergencia).dbl();
-        logger->logMetricasFinais(totalMensagensEnviadas, totalMensagensRecebidas, tempoTotal);
+        recordScalar("tempoConvergenciaFinal", tempoTotal);
     }
     
-    // Limpar o timer
+    // Limpar timer
     if (temporizadorEnvio) {
         cancelAndDelete(temporizadorEnvio);
         temporizadorEnvio = nullptr;
     }
-    
-    // Limpar o logger
-    delete logger;
 }
+

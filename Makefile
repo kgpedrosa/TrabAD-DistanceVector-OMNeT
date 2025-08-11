@@ -33,7 +33,7 @@ PROJECTRELATIVE_PATH =
 O = $(PROJECT_OUTPUT_DIR)/$(CONFIGNAME)/$(PROJECTRELATIVE_PATH)
 
 # Object files for local .cc, .msg and .sm files
-OBJS = $O/NoRoteador.o $O/Mensagens_m.o $O/Logger.o
+OBJS = $O/NoRoteador.o $O/Mensagens_m.o
 
 # Message files
 MSGFILES = \

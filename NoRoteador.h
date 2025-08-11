@@ -1,49 +1,55 @@
-#ifndef NO_SIMPLES_H
-#define NO_SIMPLES_H
+#ifndef NOROTEADOR_H
+#define NOROTEADOR_H
 
 #include <omnetpp.h>
 #include <map>
 #include <vector>
-#include "Estruturas.h"
-#include "Logger.h"
+#include <string>
 
 using namespace omnetpp;
 
-class NoRoteador : public cSimpleModule {
-private:
-    // Informações básicas do nó
-    int meuID;                                    // Quem sou eu?
-    std::map<int, InformacaoRota> tabelaRoteamento; // Como chegar em cada lugar?
-    std::map<int, double> custoVizinhos;          // Quanto custa falar com cada vizinho?
-    std::vector<int> listaVizinhos;               // Quem são meus vizinhos?
-    
+// Estrutura para armazenar informações de uma rota
+struct InformacaoRota {
+    double custo;           // Custo total até o destino
+    int proximoVizinho;     // Próximo nó no caminho
+};
 
+class NoRoteador : public cSimpleModule {
+protected:
+    // Identificação do nó
+    int meuID;
     
-    // Timer para enviar informações periodicamente
+    // Informações dos vizinhos
+    std::vector<int> listaVizinhos;
+    std::map<int, double> custoVizinhos;
+    
+    // Tabela de roteamento: destino -> informações da rota
+    std::map<int, InformacaoRota> tabelaRoteamento;
+    
+    // Timer para envio periódico
     cMessage *temporizadorEnvio;
+    
+    // Métricas para avaliação
+    int totalMensagensEnviadas;
+    int totalMensagensRecebidas;
+    simtime_t tempoInicioConvergencia;
+    simtime_t tempoFimConvergencia;
+    bool jaConvergiu;
+    int ciclosAposConvergencia;
 
 protected:
-    virtual void initialize() override;           // Configuração inicial
-    virtual void handleMessage(cMessage *msg) override;  // Processa mensagens
-    virtual void finish() override;               // Limpeza final
+    // Funções virtuais do Omnet++
+    virtual void initialize() override;
+    virtual void handleMessage(cMessage *msg) override;
+    virtual void finish() override;
 
-    // MÉTRICAS PARA AVALIAÇÃO (conforme especificação)
-    int totalMensagensEnviadas;                   // Quantas mensagens enviei
-    int totalMensagensRecebidas;                  // Quantas mensagens recebi
-    simtime_t tempoInicioConvergencia;            // Quando começou a convergir
-    simtime_t tempoFimConvergencia;               // Quando terminou de convergir
-    bool jaConvergiu;                             // Flag para controlar convergência
-    int ciclosAposConvergencia;                   // Contador de ciclos após convergência
-
-    // Funções auxiliares (bem simples!)
-    void descobrirVizinhos();                     // Descobre quem são os vizinhos
-    void enviarMinhaTabela();                     // Conta para os vizinhos como chegar em cada lugar
-    void processarTabelaVizinho(cMessage *msg);   // Aprende com a tabela de um vizinho
-    void verificarConvergencia();                 // Verifica se convergiu (para métricas)
-
-    
-    // Sistema de logging
-    Logger* logger;                               // Logger para mensagens e métricas
+private:
+    // Funções auxiliares
+    void descobrirVizinhos();
+    void enviarMinhaTabela();
+    void processarTabelaVizinho(cMessage *msg);
+    void verificarConvergencia();
+    void mostrarTabelaRoteamento();
 };
 
 #endif
