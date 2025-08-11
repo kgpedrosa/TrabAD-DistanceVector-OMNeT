@@ -1,0 +1,204 @@
+version 3
+run Malha-0-20250810-20:09:39-12460
+attr configname Malha
+attr datetime 20250810-20:09:39
+attr datetimef 20250810-200939
+attr experiment Malha
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network TopologiaMalha
+attr processid 12460
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config extends General
+config network TopologiaMalha
+config description "Simulação da Topologia em Malha Parcial - linha com atalhos estratégicos"
+config sim-time-limit 20s
+config repeat 1
+config **.recordScalar true
+config **.recordVector true
+
+scalar TopologiaMalha.no[5] mensagensEnviadas 6
+scalar TopologiaMalha.no[5] mensagensRecebidas 5
+scalar TopologiaMalha.no[5] tempoConvergencia 1.116
+scalar TopologiaMalha.no[2] mensagensEnviadas 6
+scalar TopologiaMalha.no[2] mensagensRecebidas 6
+scalar TopologiaMalha.no[2] tempoConvergencia 1.12
+scalar TopologiaMalha.no[3] mensagensEnviadas 8
+scalar TopologiaMalha.no[3] mensagensRecebidas 7
+scalar TopologiaMalha.no[3] tempoConvergencia 1.13
+scalar TopologiaMalha.no[1] mensagensEnviadas 6
+scalar TopologiaMalha.no[1] mensagensRecebidas 6
+scalar TopologiaMalha.no[1] tempoConvergencia 1.14
+scalar TopologiaMalha.no[4] mensagensEnviadas 9
+scalar TopologiaMalha.no[4] mensagensRecebidas 7
+scalar TopologiaMalha.no[4] tempoConvergencia 2.118
+scalar TopologiaMalha.no[6] mensagensEnviadas 6
+scalar TopologiaMalha.no[6] mensagensRecebidas 6
+scalar TopologiaMalha.no[6] tempoConvergencia 2.13
+scalar TopologiaMalha.no[0] mensagensEnviadas 6
+scalar TopologiaMalha.no[0] mensagensRecebidas 6
+scalar TopologiaMalha.no[0] tempoConvergencia 2.15
+par TopologiaMalha.no[0].porta$o[0].channel typename "\"ned.DelayChannel\""
+par TopologiaMalha.no[0].porta$o[0].channel disabled false
+attr mutable ""
+par TopologiaMalha.no[0].porta$o[0].channel delay 0.01s
+attr mutable ""
+attr unit s
+par TopologiaMalha.no[1].porta$o[0].channel typename "\"ned.DelayChannel\""
+par TopologiaMalha.no[1].porta$o[0].channel disabled false
+attr mutable ""
+par TopologiaMalha.no[1].porta$o[0].channel delay 0.01s
+attr mutable ""
+attr unit s
+par TopologiaMalha.no[1].porta$o[1].channel typename "\"ned.DelayChannel\""
+par TopologiaMalha.no[1].porta$o[1].channel disabled false
+attr mutable ""
+par TopologiaMalha.no[1].porta$o[1].channel delay 0.015s
+attr mutable ""
+attr unit s
+par TopologiaMalha.no[2].porta$o[0].channel typename "\"ned.DelayChannel\""
+par TopologiaMalha.no[2].porta$o[0].channel disabled false
+attr mutable ""
+par TopologiaMalha.no[2].porta$o[0].channel delay 0.015s
+attr mutable ""
+attr unit s
+par TopologiaMalha.no[2].porta$o[1].channel typename "\"ned.DelayChannel\""
+par TopologiaMalha.no[2].porta$o[1].channel disabled false
+attr mutable ""
+par TopologiaMalha.no[2].porta$o[1].channel delay 0.02s
+attr mutable ""
+attr unit s
+par TopologiaMalha.no[3].porta$o[0].channel typename "\"ned.DelayChannel\""
+par TopologiaMalha.no[3].porta$o[0].channel disabled false
+attr mutable ""
+par TopologiaMalha.no[3].porta$o[0].channel delay 0.02s
+attr mutable ""
+attr unit s
+par TopologiaMalha.no[3].porta$o[1].channel typename "\"ned.DelayChannel\""
+par TopologiaMalha.no[3].porta$o[1].channel disabled false
+attr mutable ""
+par TopologiaMalha.no[3].porta$o[1].channel delay 0.018s
+attr mutable ""
+attr unit s
+par TopologiaMalha.no[4].porta$o[0].channel typename "\"ned.DelayChannel\""
+par TopologiaMalha.no[4].porta$o[0].channel disabled false
+attr mutable ""
+par TopologiaMalha.no[4].porta$o[0].channel delay 0.018s
+attr mutable ""
+attr unit s
+par TopologiaMalha.no[4].porta$o[1].channel typename "\"ned.DelayChannel\""
+par TopologiaMalha.no[4].porta$o[1].channel disabled false
+attr mutable ""
+par TopologiaMalha.no[4].porta$o[1].channel delay 0.022s
+attr mutable ""
+attr unit s
+par TopologiaMalha.no[5].porta$o[0].channel typename "\"ned.DelayChannel\""
+par TopologiaMalha.no[5].porta$o[0].channel disabled false
+attr mutable ""
+par TopologiaMalha.no[5].porta$o[0].channel delay 0.022s
+attr mutable ""
+attr unit s
+par TopologiaMalha.no[5].porta$o[1].channel typename "\"ned.DelayChannel\""
+par TopologiaMalha.no[5].porta$o[1].channel disabled false
+attr mutable ""
+par TopologiaMalha.no[5].porta$o[1].channel delay 0.016s
+attr mutable ""
+attr unit s
+par TopologiaMalha.no[6].porta$o[0].channel typename "\"ned.DelayChannel\""
+par TopologiaMalha.no[6].porta$o[0].channel disabled false
+attr mutable ""
+par TopologiaMalha.no[6].porta$o[0].channel delay 0.016s
+attr mutable ""
+attr unit s
+par TopologiaMalha.no[0].porta$o[1].channel typename "\"ned.DelayChannel\""
+par TopologiaMalha.no[0].porta$o[1].channel disabled false
+attr mutable ""
+par TopologiaMalha.no[0].porta$o[1].channel delay 0.05s
+attr mutable ""
+attr unit s
+par TopologiaMalha.no[3].porta$o[2].channel typename "\"ned.DelayChannel\""
+par TopologiaMalha.no[3].porta$o[2].channel disabled false
+attr mutable ""
+par TopologiaMalha.no[3].porta$o[2].channel delay 0.05s
+attr mutable ""
+attr unit s
+par TopologiaMalha.no[1].porta$o[2].channel typename "\"ned.DelayChannel\""
+par TopologiaMalha.no[1].porta$o[2].channel disabled false
+attr mutable ""
+par TopologiaMalha.no[1].porta$o[2].channel delay 0.04s
+attr mutable ""
+attr unit s
+par TopologiaMalha.no[4].porta$o[2].channel typename "\"ned.DelayChannel\""
+par TopologiaMalha.no[4].porta$o[2].channel disabled false
+attr mutable ""
+par TopologiaMalha.no[4].porta$o[2].channel delay 0.04s
+attr mutable ""
+attr unit s
+par TopologiaMalha.no[2].porta$o[2].channel typename "\"ned.DelayChannel\""
+par TopologiaMalha.no[2].porta$o[2].channel disabled false
+attr mutable ""
+par TopologiaMalha.no[2].porta$o[2].channel delay 0.012s
+attr mutable ""
+attr unit s
+par TopologiaMalha.no[5].porta$o[2].channel typename "\"ned.DelayChannel\""
+par TopologiaMalha.no[5].porta$o[2].channel disabled false
+attr mutable ""
+par TopologiaMalha.no[5].porta$o[2].channel delay 0.012s
+attr mutable ""
+attr unit s
+par TopologiaMalha.no[3].porta$o[3].channel typename "\"ned.DelayChannel\""
+par TopologiaMalha.no[3].porta$o[3].channel disabled false
+attr mutable ""
+par TopologiaMalha.no[3].porta$o[3].channel delay 0.03s
+attr mutable ""
+attr unit s
+par TopologiaMalha.no[6].porta$o[1].channel typename "\"ned.DelayChannel\""
+par TopologiaMalha.no[6].porta$o[1].channel disabled false
+attr mutable ""
+par TopologiaMalha.no[6].porta$o[1].channel delay 0.03s
+attr mutable ""
+attr unit s
+par TopologiaMalha.no[0] typename "\"NoRoteador\""
+par TopologiaMalha.no[0] meuNumero 0
+scalar TopologiaMalha.no[0] mensagensEnviadasFinal 40
+scalar TopologiaMalha.no[0] mensagensRecebidasFinal 40
+scalar TopologiaMalha.no[0] tempoConvergenciaFinal 2.15
+par TopologiaMalha.no[1] typename "\"NoRoteador\""
+par TopologiaMalha.no[1] meuNumero 1
+scalar TopologiaMalha.no[1] mensagensEnviadasFinal 60
+scalar TopologiaMalha.no[1] mensagensRecebidasFinal 60
+scalar TopologiaMalha.no[1] tempoConvergenciaFinal 1.14
+par TopologiaMalha.no[2] typename "\"NoRoteador\""
+par TopologiaMalha.no[2] meuNumero 2
+scalar TopologiaMalha.no[2] mensagensEnviadasFinal 60
+scalar TopologiaMalha.no[2] mensagensRecebidasFinal 60
+scalar TopologiaMalha.no[2] tempoConvergenciaFinal 1.12
+par TopologiaMalha.no[3] typename "\"NoRoteador\""
+par TopologiaMalha.no[3] meuNumero 3
+scalar TopologiaMalha.no[3] mensagensEnviadasFinal 80
+scalar TopologiaMalha.no[3] mensagensRecebidasFinal 80
+scalar TopologiaMalha.no[3] tempoConvergenciaFinal 1.13
+par TopologiaMalha.no[4] typename "\"NoRoteador\""
+par TopologiaMalha.no[4] meuNumero 4
+scalar TopologiaMalha.no[4] mensagensEnviadasFinal 60
+scalar TopologiaMalha.no[4] mensagensRecebidasFinal 60
+scalar TopologiaMalha.no[4] tempoConvergenciaFinal 2.118
+par TopologiaMalha.no[5] typename "\"NoRoteador\""
+par TopologiaMalha.no[5] meuNumero 5
+scalar TopologiaMalha.no[5] mensagensEnviadasFinal 60
+scalar TopologiaMalha.no[5] mensagensRecebidasFinal 60
+scalar TopologiaMalha.no[5] tempoConvergenciaFinal 1.116
+par TopologiaMalha.no[6] typename "\"NoRoteador\""
+par TopologiaMalha.no[6] meuNumero 6
+scalar TopologiaMalha.no[6] mensagensEnviadasFinal 40
+scalar TopologiaMalha.no[6] mensagensRecebidasFinal 40
+scalar TopologiaMalha.no[6] tempoConvergenciaFinal 2.13
+par TopologiaMalha typename "\"TopologiaMalha\""
+

@@ -8,21 +8,21 @@
 using namespace omnetpp;
 
 // Esta estrutura guarda as informações de roteamento para cada destino
-struct InfoRota {
+struct InformacaoRota {
     double custo;           // Quanto "custa" chegar ao destino (em segundos)
     int proximoVizinho;     // Para qual vizinho devo enviar o pacote
 };
 
-class RouterNode : public cSimpleModule {
+class NoRoteador : public cSimpleModule {
 private:
     // Informações básicas do nó
     int meuID;                                    // Quem sou eu?
-    std::map<int, InfoRota> tabelaRoteamento;     // Como chegar em cada lugar?
+    std::map<int, InformacaoRota> tabelaRoteamento;     // Como chegar em cada lugar?
     std::map<int, double> custoVizinhos;          // Quanto custa falar com cada vizinho?
     std::vector<int> listaVizinhos;               // Quem são meus vizinhos?
     
     // Timer para enviar informações periodicamente
-    cMessage *timerEnvio;
+    cMessage *temporizadorEnvio;
 
 protected:
     virtual void initialize() override;           // Configuração inicial

@@ -1,0 +1,168 @@
+version 3
+run Anel-0-20250810-20:09:38-13700
+attr configname Anel
+attr datetime 20250810-20:09:38
+attr datetimef 20250810-200938
+attr experiment Anel
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network TopologiaAnel
+attr processid 13700
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config extends General
+config network TopologiaAnel
+config description "Simulação da Topologia em Anel - 7 nós formando um círculo"
+config sim-time-limit 20s
+config repeat 1
+config **.recordScalar true
+config **.recordVector true
+
+scalar TopologiaAnel.no[1] mensagensEnviadas 8
+scalar TopologiaAnel.no[1] mensagensRecebidas 7
+scalar TopologiaAnel.no[1] tempoConvergencia 3.11
+scalar TopologiaAnel.no[0] mensagensEnviadas 8
+scalar TopologiaAnel.no[0] mensagensRecebidas 7
+scalar TopologiaAnel.no[0] tempoConvergencia 3.11
+scalar TopologiaAnel.no[5] mensagensEnviadas 8
+scalar TopologiaAnel.no[5] mensagensRecebidas 7
+scalar TopologiaAnel.no[5] tempoConvergencia 3.11
+scalar TopologiaAnel.no[4] mensagensEnviadas 8
+scalar TopologiaAnel.no[4] mensagensRecebidas 7
+scalar TopologiaAnel.no[4] tempoConvergencia 3.11
+scalar TopologiaAnel.no[3] mensagensEnviadas 8
+scalar TopologiaAnel.no[3] mensagensRecebidas 7
+scalar TopologiaAnel.no[3] tempoConvergencia 3.115
+scalar TopologiaAnel.no[2] mensagensEnviadas 8
+scalar TopologiaAnel.no[2] mensagensRecebidas 7
+scalar TopologiaAnel.no[2] tempoConvergencia 3.115
+scalar TopologiaAnel.no[6] mensagensEnviadas 8
+scalar TopologiaAnel.no[6] mensagensRecebidas 7
+scalar TopologiaAnel.no[6] tempoConvergencia 3.12
+par TopologiaAnel.no[0].porta$o[0].channel typename "\"ned.DelayChannel\""
+par TopologiaAnel.no[0].porta$o[0].channel disabled false
+attr mutable ""
+par TopologiaAnel.no[0].porta$o[0].channel delay 0.01s
+attr mutable ""
+attr unit s
+par TopologiaAnel.no[1].porta$o[0].channel typename "\"ned.DelayChannel\""
+par TopologiaAnel.no[1].porta$o[0].channel disabled false
+attr mutable ""
+par TopologiaAnel.no[1].porta$o[0].channel delay 0.01s
+attr mutable ""
+attr unit s
+par TopologiaAnel.no[1].porta$o[1].channel typename "\"ned.DelayChannel\""
+par TopologiaAnel.no[1].porta$o[1].channel disabled false
+attr mutable ""
+par TopologiaAnel.no[1].porta$o[1].channel delay 0.02s
+attr mutable ""
+attr unit s
+par TopologiaAnel.no[2].porta$o[0].channel typename "\"ned.DelayChannel\""
+par TopologiaAnel.no[2].porta$o[0].channel disabled false
+attr mutable ""
+par TopologiaAnel.no[2].porta$o[0].channel delay 0.02s
+attr mutable ""
+attr unit s
+par TopologiaAnel.no[2].porta$o[1].channel typename "\"ned.DelayChannel\""
+par TopologiaAnel.no[2].porta$o[1].channel disabled false
+attr mutable ""
+par TopologiaAnel.no[2].porta$o[1].channel delay 0.015s
+attr mutable ""
+attr unit s
+par TopologiaAnel.no[3].porta$o[0].channel typename "\"ned.DelayChannel\""
+par TopologiaAnel.no[3].porta$o[0].channel disabled false
+attr mutable ""
+par TopologiaAnel.no[3].porta$o[0].channel delay 0.015s
+attr mutable ""
+attr unit s
+par TopologiaAnel.no[3].porta$o[1].channel typename "\"ned.DelayChannel\""
+par TopologiaAnel.no[3].porta$o[1].channel disabled false
+attr mutable ""
+par TopologiaAnel.no[3].porta$o[1].channel delay 0.025s
+attr mutable ""
+attr unit s
+par TopologiaAnel.no[4].porta$o[0].channel typename "\"ned.DelayChannel\""
+par TopologiaAnel.no[4].porta$o[0].channel disabled false
+attr mutable ""
+par TopologiaAnel.no[4].porta$o[0].channel delay 0.025s
+attr mutable ""
+attr unit s
+par TopologiaAnel.no[4].porta$o[1].channel typename "\"ned.DelayChannel\""
+par TopologiaAnel.no[4].porta$o[1].channel disabled false
+attr mutable ""
+par TopologiaAnel.no[4].porta$o[1].channel delay 0.01s
+attr mutable ""
+attr unit s
+par TopologiaAnel.no[5].porta$o[0].channel typename "\"ned.DelayChannel\""
+par TopologiaAnel.no[5].porta$o[0].channel disabled false
+attr mutable ""
+par TopologiaAnel.no[5].porta$o[0].channel delay 0.01s
+attr mutable ""
+attr unit s
+par TopologiaAnel.no[5].porta$o[1].channel typename "\"ned.DelayChannel\""
+par TopologiaAnel.no[5].porta$o[1].channel disabled false
+attr mutable ""
+par TopologiaAnel.no[5].porta$o[1].channel delay 0.03s
+attr mutable ""
+attr unit s
+par TopologiaAnel.no[6].porta$o[0].channel typename "\"ned.DelayChannel\""
+par TopologiaAnel.no[6].porta$o[0].channel disabled false
+attr mutable ""
+par TopologiaAnel.no[6].porta$o[0].channel delay 0.03s
+attr mutable ""
+attr unit s
+par TopologiaAnel.no[6].porta$o[1].channel typename "\"ned.DelayChannel\""
+par TopologiaAnel.no[6].porta$o[1].channel disabled false
+attr mutable ""
+par TopologiaAnel.no[6].porta$o[1].channel delay 0.02s
+attr mutable ""
+attr unit s
+par TopologiaAnel.no[0].porta$o[1].channel typename "\"ned.DelayChannel\""
+par TopologiaAnel.no[0].porta$o[1].channel disabled false
+attr mutable ""
+par TopologiaAnel.no[0].porta$o[1].channel delay 0.02s
+attr mutable ""
+attr unit s
+par TopologiaAnel.no[0] typename "\"NoRoteador\""
+par TopologiaAnel.no[0] meuNumero 0
+scalar TopologiaAnel.no[0] mensagensEnviadasFinal 40
+scalar TopologiaAnel.no[0] mensagensRecebidasFinal 40
+scalar TopologiaAnel.no[0] tempoConvergenciaFinal 3.11
+par TopologiaAnel.no[1] typename "\"NoRoteador\""
+par TopologiaAnel.no[1] meuNumero 1
+scalar TopologiaAnel.no[1] mensagensEnviadasFinal 40
+scalar TopologiaAnel.no[1] mensagensRecebidasFinal 40
+scalar TopologiaAnel.no[1] tempoConvergenciaFinal 3.11
+par TopologiaAnel.no[2] typename "\"NoRoteador\""
+par TopologiaAnel.no[2] meuNumero 2
+scalar TopologiaAnel.no[2] mensagensEnviadasFinal 40
+scalar TopologiaAnel.no[2] mensagensRecebidasFinal 40
+scalar TopologiaAnel.no[2] tempoConvergenciaFinal 3.115
+par TopologiaAnel.no[3] typename "\"NoRoteador\""
+par TopologiaAnel.no[3] meuNumero 3
+scalar TopologiaAnel.no[3] mensagensEnviadasFinal 40
+scalar TopologiaAnel.no[3] mensagensRecebidasFinal 40
+scalar TopologiaAnel.no[3] tempoConvergenciaFinal 3.115
+par TopologiaAnel.no[4] typename "\"NoRoteador\""
+par TopologiaAnel.no[4] meuNumero 4
+scalar TopologiaAnel.no[4] mensagensEnviadasFinal 40
+scalar TopologiaAnel.no[4] mensagensRecebidasFinal 40
+scalar TopologiaAnel.no[4] tempoConvergenciaFinal 3.11
+par TopologiaAnel.no[5] typename "\"NoRoteador\""
+par TopologiaAnel.no[5] meuNumero 5
+scalar TopologiaAnel.no[5] mensagensEnviadasFinal 40
+scalar TopologiaAnel.no[5] mensagensRecebidasFinal 40
+scalar TopologiaAnel.no[5] tempoConvergenciaFinal 3.11
+par TopologiaAnel.no[6] typename "\"NoRoteador\""
+par TopologiaAnel.no[6] meuNumero 6
+scalar TopologiaAnel.no[6] mensagensEnviadasFinal 40
+scalar TopologiaAnel.no[6] mensagensRecebidasFinal 40
+scalar TopologiaAnel.no[6] tempoConvergenciaFinal 3.12
+par TopologiaAnel typename "\"TopologiaAnel\""
+

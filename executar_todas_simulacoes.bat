@@ -5,29 +5,29 @@ REM Execute este arquivo após compilar o projeto
 echo 🚀 Iniciando simulações de todas as topologias...
 echo.
 
-echo 📊 Simulation 1: Line Topology
+echo 📊 Simulação 1: Topologia em Linha
 TrabAD.exe -u Cmdenv -c Linha -f omnetpp.ini > resultados_linha.txt
-echo ✅ Line completed
+echo ✅ Linha concluída
 
-echo 📊 Simulation 2: Ring Topology  
+echo 📊 Simulação 2: Topologia em Anel  
 TrabAD.exe -u Cmdenv -c Anel -f omnetpp.ini > resultados_anel.txt
-echo ✅ Ring completed
+echo ✅ Anel concluído
 
-echo 📊 Simulation 3: Star Topology
+echo 📊 Simulação 3: Topologia em Estrela
 TrabAD.exe -u Cmdenv -c Estrela -f omnetpp.ini > resultados_estrela.txt
-echo ✅ Star completed
+echo ✅ Estrela concluída
 
-echo 📊 Simulation 4: Mesh Topology
+echo 📊 Simulação 4: Topologia em Malha
 TrabAD.exe -u Cmdenv -c Malha -f omnetpp.ini > resultados_malha.txt
-echo ✅ Mesh completed
+echo ✅ Malha concluída
 
-echo 📊 Simulation 5: Irregular Topology
+echo 📊 Simulação 5: Topologia Irregular
 TrabAD.exe -u Cmdenv -c Irregular -f omnetpp.ini > resultados_irregular.txt
-echo ✅ Irregular completed
+echo ✅ Irregular concluída
 
 echo.
-echo 🎉 All simulations completed!
-echo 📁 Results saved in: resultados_*.txt
-echo 📊 Metrics saved in: results/*.sca
+echo 🎉 Todas as simulações concluídas!
+echo 📁 Resultados salvos em: resultados_*.txt
+echo 📊 Métricas salvas em: results/*.sca
 echo.
 pause

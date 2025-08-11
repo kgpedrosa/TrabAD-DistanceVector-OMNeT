@@ -1,0 +1,166 @@
+OMNeT++ Discrete Event Simulation  (C) 1992-2024 Andras Varga, OpenSim Ltd.
+Version: 6.1, build: 241008-f7568267cd, edition: Academic Public License -- NOT FOR COMMERCIAL USE
+See the license for distribution terms and warranty disclaimer
+
+Setting up Cmdenv...
+
+Loading NED files from .:  6
+
+Preparing for running configuration Linha, run #0...
+Assigned runID=Linha-0-20250810-20:09:38-13604
+Setting up network "TopologiaLinha"...
+Initializing...
+
+Running simulation...
+** Event #0   t=0   Elapsed: 1e-06s (0m 00s)  0% completed  (0% total)
+     Speed:     ev/sec=0   simsec/sec=0   ev/simsec=0
+     Messages:  created: 7   present: 7   in FES: 8
+** Event #381   t=20   Elapsed: 0.000726s (0m 00s)  100% completed  (100% total)
+     Speed:     ev/sec=0   simsec/sec=0   ev/simsec=0
+     Messages:  created: 487   present: 7   in FES: 7
+
+<!> Simulation time limit reached -- at t=20s, event #381
+
+Calling finish() at end of Run #0...
+[INFO]	🏁 Nó 0 finalizando. Tabela final:
+[INFO]	📋 Tabela de Roteamento do Nó 0:
+[INFO]	   Destino | Custo  | Próximo | Caminho Completo
+[INFO]	   --------|--------|---------|------------------
+[INFO]	   0       | 0 | 0       | 0
+[INFO]	   1       | 0.01 | 1       | 0 → 1
+[INFO]	   2       | 0.03 | 1       | 0 → 1 → 2
+[INFO]	   3       | 0.04 | 1       | 0 → 1 → 3
+[INFO]	   4       | 0.07 | 1       | 0 → 1 → 4
+[INFO]	   5       | 0.08 | 1       | 0 → 1 → 5
+[INFO]	   6       | 0.1 | 1       | 0 → 1 → 6
+[INFO]	
+[INFO]	📊 MÉTRICAS FINAIS - Enviadas: 20, Recebidas: 20, Tempo Convergência: 6.11s
+[INFO]	🔍 VERIFICAÇÃO DE CONSISTÊNCIA - CAMINHOS COMPLETOS:
+[INFO]	🛤️ Para destino 1: custo=0.01s, caminho=0 → 1
+[INFO]	🛤️ Para destino 2: custo=0.03s, caminho=0 → 1 → 2
+[INFO]	🛤️ Para destino 3: custo=0.04s, caminho=0 → 1 → 3
+[INFO]	🛤️ Para destino 4: custo=0.07s, caminho=0 → 1 → 4
+[INFO]	🛤️ Para destino 5: custo=0.08s, caminho=0 → 1 → 5
+[INFO]	🛤️ Para destino 6: custo=0.1s, caminho=0 → 1 → 6
+[INFO]	🏁 Nó 1 finalizando. Tabela final:
+[INFO]	📋 Tabela de Roteamento do Nó 1:
+[INFO]	   Destino | Custo  | Próximo | Caminho Completo
+[INFO]	   --------|--------|---------|------------------
+[INFO]	   0       | 0.01 | 0       | 1 → 0
+[INFO]	   1       | 0 | 1       | 1
+[INFO]	   2       | 0.02 | 2       | 1 → 2
+[INFO]	   3       | 0.03 | 2       | 1 → 2 → 3
+[INFO]	   4       | 0.06 | 2       | 1 → 2 → 4
+[INFO]	   5       | 0.07 | 2       | 1 → 2 → 5
+[INFO]	   6       | 0.09 | 2       | 1 → 2 → 6
+[INFO]	
+[INFO]	📊 MÉTRICAS FINAIS - Enviadas: 40, Recebidas: 40, Tempo Convergência: 1.11s
+[INFO]	🔍 VERIFICAÇÃO DE CONSISTÊNCIA - CAMINHOS COMPLETOS:
+[INFO]	🛤️ Para destino 0: custo=0.01s, caminho=1 → 0
+[INFO]	🛤️ Para destino 2: custo=0.02s, caminho=1 → 2
+[INFO]	🛤️ Para destino 3: custo=0.03s, caminho=1 → 2 → 3
+[INFO]	🛤️ Para destino 4: custo=0.06s, caminho=1 → 2 → 4
+[INFO]	🛤️ Para destino 5: custo=0.07s, caminho=1 → 2 → 5
+[INFO]	🛤️ Para destino 6: custo=0.09s, caminho=1 → 2 → 6
+[INFO]	🏁 Nó 2 finalizando. Tabela final:
+[INFO]	📋 Tabela de Roteamento do Nó 2:
+[INFO]	   Destino | Custo  | Próximo | Caminho Completo
+[INFO]	   --------|--------|---------|------------------
+[INFO]	   0       | 0.03 | 1       | 2 → 1 → 0
+[INFO]	   1       | 0.02 | 1       | 2 → 1
+[INFO]	   2       | 0 | 2       | 2
+[INFO]	   3       | 0.01 | 3       | 2 → 3
+[INFO]	   4       | 0.04 | 3       | 2 → 3 → 4
+[INFO]	   5       | 0.05 | 3       | 2 → 3 → 5
+[INFO]	   6       | 0.07 | 3       | 2 → 3 → 6
+[INFO]	
+[INFO]	📊 MÉTRICAS FINAIS - Enviadas: 40, Recebidas: 40, Tempo Convergência: 2.12s
+[INFO]	🔍 VERIFICAÇÃO DE CONSISTÊNCIA - CAMINHOS COMPLETOS:
+[INFO]	🛤️ Para destino 0: custo=0.03s, caminho=2 → 1 → 0
+[INFO]	🛤️ Para destino 1: custo=0.02s, caminho=2 → 1
+[INFO]	🛤️ Para destino 3: custo=0.01s, caminho=2 → 3
+[INFO]	🛤️ Para destino 4: custo=0.04s, caminho=2 → 3 → 4
+[INFO]	🛤️ Para destino 5: custo=0.05s, caminho=2 → 3 → 5
+[INFO]	🛤️ Para destino 6: custo=0.07s, caminho=2 → 3 → 6
+[INFO]	🏁 Nó 3 finalizando. Tabela final:
+[INFO]	📋 Tabela de Roteamento do Nó 3:
+[INFO]	   Destino | Custo  | Próximo | Caminho Completo
+[INFO]	   --------|--------|---------|------------------
+[INFO]	   0       | 0.04 | 2       | 3 → 2 → 0
+[INFO]	   1       | 0.03 | 2       | 3 → 2 → 1
+[INFO]	   2       | 0.01 | 2       | 3 → 2
+[INFO]	   3       | 0 | 3       | 3
+[INFO]	   4       | 0.03 | 4       | 3 → 4
+[INFO]	   5       | 0.04 | 4       | 3 → 4 → 5
+[INFO]	   6       | 0.06 | 4       | 3 → 4 → 6
+[INFO]	
+[INFO]	📊 MÉTRICAS FINAIS - Enviadas: 40, Recebidas: 40, Tempo Convergência: 3.11s
+[INFO]	🔍 VERIFICAÇÃO DE CONSISTÊNCIA - CAMINHOS COMPLETOS:
+[INFO]	🛤️ Para destino 0: custo=0.04s, caminho=3 → 2 → 0
+[INFO]	🛤️ Para destino 1: custo=0.03s, caminho=3 → 2 → 1
+[INFO]	🛤️ Para destino 2: custo=0.01s, caminho=3 → 2
+[INFO]	🛤️ Para destino 4: custo=0.03s, caminho=3 → 4
+[INFO]	🛤️ Para destino 5: custo=0.04s, caminho=3 → 4 → 5
+[INFO]	🛤️ Para destino 6: custo=0.06s, caminho=3 → 4 → 6
+[INFO]	🏁 Nó 4 finalizando. Tabela final:
+[INFO]	📋 Tabela de Roteamento do Nó 4:
+[INFO]	   Destino | Custo  | Próximo | Caminho Completo
+[INFO]	   --------|--------|---------|------------------
+[INFO]	   0       | 0.07 | 3       | 4 → 3 → 0
+[INFO]	   1       | 0.06 | 3       | 4 → 3 → 1
+[INFO]	   2       | 0.04 | 3       | 4 → 3 → 2
+[INFO]	   3       | 0.03 | 3       | 4 → 3
+[INFO]	   4       | 0 | 4       | 4
+[INFO]	   5       | 0.01 | 5       | 4 → 5
+[INFO]	   6       | 0.03 | 5       | 4 → 5 → 6
+[INFO]	
+[INFO]	📊 MÉTRICAS FINAIS - Enviadas: 40, Recebidas: 40, Tempo Convergência: 2.11s
+[INFO]	🔍 VERIFICAÇÃO DE CONSISTÊNCIA - CAMINHOS COMPLETOS:
+[INFO]	🛤️ Para destino 0: custo=0.07s, caminho=4 → 3 → 0
+[INFO]	🛤️ Para destino 1: custo=0.06s, caminho=4 → 3 → 1
+[INFO]	🛤️ Para destino 2: custo=0.04s, caminho=4 → 3 → 2
+[INFO]	🛤️ Para destino 3: custo=0.03s, caminho=4 → 3
+[INFO]	🛤️ Para destino 5: custo=0.01s, caminho=4 → 5
+[INFO]	🛤️ Para destino 6: custo=0.03s, caminho=4 → 5 → 6
+[INFO]	🏁 Nó 5 finalizando. Tabela final:
+[INFO]	📋 Tabela de Roteamento do Nó 5:
+[INFO]	   Destino | Custo  | Próximo | Caminho Completo
+[INFO]	   --------|--------|---------|------------------
+[INFO]	   0       | 0.08 | 4       | 5 → 4 → 0
+[INFO]	   1       | 0.07 | 4       | 5 → 4 → 1
+[INFO]	   2       | 0.05 | 4       | 5 → 4 → 2
+[INFO]	   3       | 0.04 | 4       | 5 → 4 → 3
+[INFO]	   4       | 0.01 | 4       | 5 → 4
+[INFO]	   5       | 0 | 5       | 5
+[INFO]	   6       | 0.02 | 6       | 5 → 6
+[INFO]	
+[INFO]	📊 MÉTRICAS FINAIS - Enviadas: 40, Recebidas: 40, Tempo Convergência: 1.12s
+[INFO]	🔍 VERIFICAÇÃO DE CONSISTÊNCIA - CAMINHOS COMPLETOS:
+[INFO]	🛤️ Para destino 0: custo=0.08s, caminho=5 → 4 → 0
+[INFO]	🛤️ Para destino 1: custo=0.07s, caminho=5 → 4 → 1
+[INFO]	🛤️ Para destino 2: custo=0.05s, caminho=5 → 4 → 2
+[INFO]	🛤️ Para destino 3: custo=0.04s, caminho=5 → 4 → 3
+[INFO]	🛤️ Para destino 4: custo=0.01s, caminho=5 → 4
+[INFO]	🛤️ Para destino 6: custo=0.02s, caminho=5 → 6
+[INFO]	🏁 Nó 6 finalizando. Tabela final:
+[INFO]	📋 Tabela de Roteamento do Nó 6:
+[INFO]	   Destino | Custo  | Próximo | Caminho Completo
+[INFO]	   --------|--------|---------|------------------
+[INFO]	   0       | 0.1 | 5       | 6 → 5 → 0
+[INFO]	   1       | 0.09 | 5       | 6 → 5 → 1
+[INFO]	   2       | 0.07 | 5       | 6 → 5 → 2
+[INFO]	   3       | 0.06 | 5       | 6 → 5 → 3
+[INFO]	   4       | 0.03 | 5       | 6 → 5 → 4
+[INFO]	   5       | 0.02 | 5       | 6 → 5
+[INFO]	   6       | 0 | 6       | 6
+[INFO]	
+[INFO]	📊 MÉTRICAS FINAIS - Enviadas: 20, Recebidas: 20, Tempo Convergência: 6.12s
+[INFO]	🔍 VERIFICAÇÃO DE CONSISTÊNCIA - CAMINHOS COMPLETOS:
+[INFO]	🛤️ Para destino 0: custo=0.1s, caminho=6 → 5 → 0
+[INFO]	🛤️ Para destino 1: custo=0.09s, caminho=6 → 5 → 1
+[INFO]	🛤️ Para destino 2: custo=0.07s, caminho=6 → 5 → 2
+[INFO]	🛤️ Para destino 3: custo=0.06s, caminho=6 → 5 → 3
+[INFO]	🛤️ Para destino 4: custo=0.03s, caminho=6 → 5 → 4
+[INFO]	🛤️ Para destino 5: custo=0.02s, caminho=6 → 5
+
+End.

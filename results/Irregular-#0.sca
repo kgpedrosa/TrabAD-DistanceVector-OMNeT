@@ -1,0 +1,192 @@
+version 3
+run Irregular-0-20250810-20:43:28-4188
+attr configname Irregular
+attr datetime 20250810-20:43:28
+attr datetimef 20250810-204328
+attr experiment Irregular
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network TopologiaIrregular
+attr processid 4188
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config extends General
+config network TopologiaIrregular
+config description "Simulação da Topologia Irregular - conexões complexas com gargalos"
+config sim-time-limit 20s
+config repeat 1
+config **.recordScalar true
+config **.recordVector true
+
+scalar TopologiaIrregular.no[1] mensagensEnviadas 6
+scalar TopologiaIrregular.no[1] mensagensRecebidas 4
+scalar TopologiaIrregular.no[1] tempoConvergencia 1.11
+scalar TopologiaIrregular.no[2] mensagensEnviadas 6
+scalar TopologiaIrregular.no[2] mensagensRecebidas 5
+scalar TopologiaIrregular.no[2] tempoConvergencia 1.12
+scalar TopologiaIrregular.no[5] mensagensEnviadas 6
+scalar TopologiaIrregular.no[5] mensagensRecebidas 6
+scalar TopologiaIrregular.no[5] tempoConvergencia 1.125
+scalar TopologiaIrregular.no[3] mensagensEnviadas 9
+scalar TopologiaIrregular.no[3] mensagensRecebidas 7
+scalar TopologiaIrregular.no[3] tempoConvergencia 2.11
+scalar TopologiaIrregular.no[4] mensagensEnviadas 9
+scalar TopologiaIrregular.no[4] mensagensRecebidas 8
+scalar TopologiaIrregular.no[4] tempoConvergencia 2.115
+scalar TopologiaIrregular.no[0] mensagensEnviadas 10
+scalar TopologiaIrregular.no[0] mensagensRecebidas 9
+scalar TopologiaIrregular.no[0] tempoConvergencia 4.11
+scalar TopologiaIrregular.no[6] mensagensEnviadas 5
+scalar TopologiaIrregular.no[6] mensagensRecebidas 5
+scalar TopologiaIrregular.no[6] tempoConvergencia 4.125
+par TopologiaIrregular.no[0].porta$o[0].channel typename "\"ned.DelayChannel\""
+par TopologiaIrregular.no[0].porta$o[0].channel disabled false
+attr mutable ""
+par TopologiaIrregular.no[0].porta$o[0].channel delay 0.01s
+attr mutable ""
+attr unit s
+par TopologiaIrregular.no[1].porta$o[0].channel typename "\"ned.DelayChannel\""
+par TopologiaIrregular.no[1].porta$o[0].channel disabled false
+attr mutable ""
+par TopologiaIrregular.no[1].porta$o[0].channel delay 0.01s
+attr mutable ""
+attr unit s
+par TopologiaIrregular.no[1].porta$o[1].channel typename "\"ned.DelayChannel\""
+par TopologiaIrregular.no[1].porta$o[1].channel disabled false
+attr mutable ""
+par TopologiaIrregular.no[1].porta$o[1].channel delay 0.015s
+attr mutable ""
+attr unit s
+par TopologiaIrregular.no[2].porta$o[0].channel typename "\"ned.DelayChannel\""
+par TopologiaIrregular.no[2].porta$o[0].channel disabled false
+attr mutable ""
+par TopologiaIrregular.no[2].porta$o[0].channel delay 0.015s
+attr mutable ""
+attr unit s
+par TopologiaIrregular.no[0].porta$o[1].channel typename "\"ned.DelayChannel\""
+par TopologiaIrregular.no[0].porta$o[1].channel disabled false
+attr mutable ""
+par TopologiaIrregular.no[0].porta$o[1].channel delay 0.02s
+attr mutable ""
+attr unit s
+par TopologiaIrregular.no[2].porta$o[1].channel typename "\"ned.DelayChannel\""
+par TopologiaIrregular.no[2].porta$o[1].channel disabled false
+attr mutable ""
+par TopologiaIrregular.no[2].porta$o[1].channel delay 0.02s
+attr mutable ""
+attr unit s
+par TopologiaIrregular.no[2].porta$o[2].channel typename "\"ned.DelayChannel\""
+par TopologiaIrregular.no[2].porta$o[2].channel disabled false
+attr mutable ""
+par TopologiaIrregular.no[2].porta$o[2].channel delay 0.05s
+attr mutable ""
+attr unit s
+par TopologiaIrregular.no[3].porta$o[0].channel typename "\"ned.DelayChannel\""
+par TopologiaIrregular.no[3].porta$o[0].channel disabled false
+attr mutable ""
+par TopologiaIrregular.no[3].porta$o[0].channel delay 0.05s
+attr mutable ""
+attr unit s
+par TopologiaIrregular.no[3].porta$o[1].channel typename "\"ned.DelayChannel\""
+par TopologiaIrregular.no[3].porta$o[1].channel disabled false
+attr mutable ""
+par TopologiaIrregular.no[3].porta$o[1].channel delay 0.01s
+attr mutable ""
+attr unit s
+par TopologiaIrregular.no[4].porta$o[0].channel typename "\"ned.DelayChannel\""
+par TopologiaIrregular.no[4].porta$o[0].channel disabled false
+attr mutable ""
+par TopologiaIrregular.no[4].porta$o[0].channel delay 0.01s
+attr mutable ""
+attr unit s
+par TopologiaIrregular.no[4].porta$o[1].channel typename "\"ned.DelayChannel\""
+par TopologiaIrregular.no[4].porta$o[1].channel disabled false
+attr mutable ""
+par TopologiaIrregular.no[4].porta$o[1].channel delay 0.015s
+attr mutable ""
+attr unit s
+par TopologiaIrregular.no[5].porta$o[0].channel typename "\"ned.DelayChannel\""
+par TopologiaIrregular.no[5].porta$o[0].channel disabled false
+attr mutable ""
+par TopologiaIrregular.no[5].porta$o[0].channel delay 0.015s
+attr mutable ""
+attr unit s
+par TopologiaIrregular.no[5].porta$o[1].channel typename "\"ned.DelayChannel\""
+par TopologiaIrregular.no[5].porta$o[1].channel disabled false
+attr mutable ""
+par TopologiaIrregular.no[5].porta$o[1].channel delay 0.012s
+attr mutable ""
+attr unit s
+par TopologiaIrregular.no[3].porta$o[2].channel typename "\"ned.DelayChannel\""
+par TopologiaIrregular.no[3].porta$o[2].channel disabled false
+attr mutable ""
+par TopologiaIrregular.no[3].porta$o[2].channel delay 0.012s
+attr mutable ""
+attr unit s
+par TopologiaIrregular.no[5].porta$o[2].channel typename "\"ned.DelayChannel\""
+par TopologiaIrregular.no[5].porta$o[2].channel disabled false
+attr mutable ""
+par TopologiaIrregular.no[5].porta$o[2].channel delay 0.025s
+attr mutable ""
+attr unit s
+par TopologiaIrregular.no[6].porta$o[0].channel typename "\"ned.DelayChannel\""
+par TopologiaIrregular.no[6].porta$o[0].channel disabled false
+attr mutable ""
+par TopologiaIrregular.no[6].porta$o[0].channel delay 0.025s
+attr mutable ""
+attr unit s
+par TopologiaIrregular.no[1].porta$o[2].channel typename "\"ned.DelayChannel\""
+par TopologiaIrregular.no[1].porta$o[2].channel disabled false
+attr mutable ""
+par TopologiaIrregular.no[1].porta$o[2].channel delay 0.08s
+attr mutable ""
+attr unit s
+par TopologiaIrregular.no[4].porta$o[2].channel typename "\"ned.DelayChannel\""
+par TopologiaIrregular.no[4].porta$o[2].channel disabled false
+attr mutable ""
+par TopologiaIrregular.no[4].porta$o[2].channel delay 0.08s
+attr mutable ""
+attr unit s
+par TopologiaIrregular.no[0] typename "\"NoRoteador\""
+par TopologiaIrregular.no[0] meuNumero 0
+scalar TopologiaIrregular.no[0] mensagensEnviadasFinal 40
+scalar TopologiaIrregular.no[0] mensagensRecebidasFinal 40
+scalar TopologiaIrregular.no[0] tempoConvergenciaFinal 4.11
+par TopologiaIrregular.no[1] typename "\"NoRoteador\""
+par TopologiaIrregular.no[1] meuNumero 1
+scalar TopologiaIrregular.no[1] mensagensEnviadasFinal 60
+scalar TopologiaIrregular.no[1] mensagensRecebidasFinal 60
+scalar TopologiaIrregular.no[1] tempoConvergenciaFinal 1.11
+par TopologiaIrregular.no[2] typename "\"NoRoteador\""
+par TopologiaIrregular.no[2] meuNumero 2
+scalar TopologiaIrregular.no[2] mensagensEnviadasFinal 60
+scalar TopologiaIrregular.no[2] mensagensRecebidasFinal 60
+scalar TopologiaIrregular.no[2] tempoConvergenciaFinal 1.12
+par TopologiaIrregular.no[3] typename "\"NoRoteador\""
+par TopologiaIrregular.no[3] meuNumero 3
+scalar TopologiaIrregular.no[3] mensagensEnviadasFinal 60
+scalar TopologiaIrregular.no[3] mensagensRecebidasFinal 60
+scalar TopologiaIrregular.no[3] tempoConvergenciaFinal 2.11
+par TopologiaIrregular.no[4] typename "\"NoRoteador\""
+par TopologiaIrregular.no[4] meuNumero 4
+scalar TopologiaIrregular.no[4] mensagensEnviadasFinal 60
+scalar TopologiaIrregular.no[4] mensagensRecebidasFinal 60
+scalar TopologiaIrregular.no[4] tempoConvergenciaFinal 2.115
+par TopologiaIrregular.no[5] typename "\"NoRoteador\""
+par TopologiaIrregular.no[5] meuNumero 5
+scalar TopologiaIrregular.no[5] mensagensEnviadasFinal 60
+scalar TopologiaIrregular.no[5] mensagensRecebidasFinal 60
+scalar TopologiaIrregular.no[5] tempoConvergenciaFinal 1.125
+par TopologiaIrregular.no[6] typename "\"NoRoteador\""
+par TopologiaIrregular.no[6] meuNumero 6
+scalar TopologiaIrregular.no[6] mensagensEnviadasFinal 20
+scalar TopologiaIrregular.no[6] mensagensRecebidasFinal 20
+scalar TopologiaIrregular.no[6] tempoConvergenciaFinal 4.125
+par TopologiaIrregular typename "\"TopologiaIrregular\""
+

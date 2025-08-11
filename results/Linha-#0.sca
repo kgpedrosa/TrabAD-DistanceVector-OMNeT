@@ -1,0 +1,156 @@
+version 3
+run Linha-0-20250810-20:09:38-13604
+attr configname Linha
+attr datetime 20250810-20:09:38
+attr datetimef 20250810-200938
+attr experiment Linha
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network TopologiaLinha
+attr processid 13604
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config extends General
+config network TopologiaLinha
+config description "Simulação da Topologia em Linha - 7 nós conectados sequencialmente"
+config sim-time-limit 20s
+config repeat 1
+config **.recordScalar true
+config **.recordVector true
+
+scalar TopologiaLinha.no[1] mensagensEnviadas 4
+scalar TopologiaLinha.no[1] mensagensRecebidas 3
+scalar TopologiaLinha.no[1] tempoConvergencia 1.11
+scalar TopologiaLinha.no[5] mensagensEnviadas 4
+scalar TopologiaLinha.no[5] mensagensRecebidas 4
+scalar TopologiaLinha.no[5] tempoConvergencia 1.12
+scalar TopologiaLinha.no[4] mensagensEnviadas 6
+scalar TopologiaLinha.no[4] mensagensRecebidas 5
+scalar TopologiaLinha.no[4] tempoConvergencia 2.11
+scalar TopologiaLinha.no[2] mensagensEnviadas 6
+scalar TopologiaLinha.no[2] mensagensRecebidas 6
+scalar TopologiaLinha.no[2] tempoConvergencia 2.12
+scalar TopologiaLinha.no[3] mensagensEnviadas 8
+scalar TopologiaLinha.no[3] mensagensRecebidas 7
+scalar TopologiaLinha.no[3] tempoConvergencia 3.11
+scalar TopologiaLinha.no[0] mensagensEnviadas 7
+scalar TopologiaLinha.no[0] mensagensRecebidas 7
+scalar TopologiaLinha.no[0] tempoConvergencia 6.11
+scalar TopologiaLinha.no[6] mensagensEnviadas 7
+scalar TopologiaLinha.no[6] mensagensRecebidas 7
+scalar TopologiaLinha.no[6] tempoConvergencia 6.12
+par TopologiaLinha.no[0].porta$o[0].channel typename "\"ned.DelayChannel\""
+par TopologiaLinha.no[0].porta$o[0].channel disabled false
+attr mutable ""
+par TopologiaLinha.no[0].porta$o[0].channel delay 0.01s
+attr mutable ""
+attr unit s
+par TopologiaLinha.no[1].porta$o[0].channel typename "\"ned.DelayChannel\""
+par TopologiaLinha.no[1].porta$o[0].channel disabled false
+attr mutable ""
+par TopologiaLinha.no[1].porta$o[0].channel delay 0.01s
+attr mutable ""
+attr unit s
+par TopologiaLinha.no[1].porta$o[1].channel typename "\"ned.DelayChannel\""
+par TopologiaLinha.no[1].porta$o[1].channel disabled false
+attr mutable ""
+par TopologiaLinha.no[1].porta$o[1].channel delay 0.02s
+attr mutable ""
+attr unit s
+par TopologiaLinha.no[2].porta$o[0].channel typename "\"ned.DelayChannel\""
+par TopologiaLinha.no[2].porta$o[0].channel disabled false
+attr mutable ""
+par TopologiaLinha.no[2].porta$o[0].channel delay 0.02s
+attr mutable ""
+attr unit s
+par TopologiaLinha.no[2].porta$o[1].channel typename "\"ned.DelayChannel\""
+par TopologiaLinha.no[2].porta$o[1].channel disabled false
+attr mutable ""
+par TopologiaLinha.no[2].porta$o[1].channel delay 0.01s
+attr mutable ""
+attr unit s
+par TopologiaLinha.no[3].porta$o[0].channel typename "\"ned.DelayChannel\""
+par TopologiaLinha.no[3].porta$o[0].channel disabled false
+attr mutable ""
+par TopologiaLinha.no[3].porta$o[0].channel delay 0.01s
+attr mutable ""
+attr unit s
+par TopologiaLinha.no[3].porta$o[1].channel typename "\"ned.DelayChannel\""
+par TopologiaLinha.no[3].porta$o[1].channel disabled false
+attr mutable ""
+par TopologiaLinha.no[3].porta$o[1].channel delay 0.03s
+attr mutable ""
+attr unit s
+par TopologiaLinha.no[4].porta$o[0].channel typename "\"ned.DelayChannel\""
+par TopologiaLinha.no[4].porta$o[0].channel disabled false
+attr mutable ""
+par TopologiaLinha.no[4].porta$o[0].channel delay 0.03s
+attr mutable ""
+attr unit s
+par TopologiaLinha.no[4].porta$o[1].channel typename "\"ned.DelayChannel\""
+par TopologiaLinha.no[4].porta$o[1].channel disabled false
+attr mutable ""
+par TopologiaLinha.no[4].porta$o[1].channel delay 0.01s
+attr mutable ""
+attr unit s
+par TopologiaLinha.no[5].porta$o[0].channel typename "\"ned.DelayChannel\""
+par TopologiaLinha.no[5].porta$o[0].channel disabled false
+attr mutable ""
+par TopologiaLinha.no[5].porta$o[0].channel delay 0.01s
+attr mutable ""
+attr unit s
+par TopologiaLinha.no[5].porta$o[1].channel typename "\"ned.DelayChannel\""
+par TopologiaLinha.no[5].porta$o[1].channel disabled false
+attr mutable ""
+par TopologiaLinha.no[5].porta$o[1].channel delay 0.02s
+attr mutable ""
+attr unit s
+par TopologiaLinha.no[6].porta$o[0].channel typename "\"ned.DelayChannel\""
+par TopologiaLinha.no[6].porta$o[0].channel disabled false
+attr mutable ""
+par TopologiaLinha.no[6].porta$o[0].channel delay 0.02s
+attr mutable ""
+attr unit s
+par TopologiaLinha.no[0] typename "\"NoRoteador\""
+par TopologiaLinha.no[0] meuNumero 0
+scalar TopologiaLinha.no[0] mensagensEnviadasFinal 20
+scalar TopologiaLinha.no[0] mensagensRecebidasFinal 20
+scalar TopologiaLinha.no[0] tempoConvergenciaFinal 6.11
+par TopologiaLinha.no[1] typename "\"NoRoteador\""
+par TopologiaLinha.no[1] meuNumero 1
+scalar TopologiaLinha.no[1] mensagensEnviadasFinal 40
+scalar TopologiaLinha.no[1] mensagensRecebidasFinal 40
+scalar TopologiaLinha.no[1] tempoConvergenciaFinal 1.11
+par TopologiaLinha.no[2] typename "\"NoRoteador\""
+par TopologiaLinha.no[2] meuNumero 2
+scalar TopologiaLinha.no[2] mensagensEnviadasFinal 40
+scalar TopologiaLinha.no[2] mensagensRecebidasFinal 40
+scalar TopologiaLinha.no[2] tempoConvergenciaFinal 2.12
+par TopologiaLinha.no[3] typename "\"NoRoteador\""
+par TopologiaLinha.no[3] meuNumero 3
+scalar TopologiaLinha.no[3] mensagensEnviadasFinal 40
+scalar TopologiaLinha.no[3] mensagensRecebidasFinal 40
+scalar TopologiaLinha.no[3] tempoConvergenciaFinal 3.11
+par TopologiaLinha.no[4] typename "\"NoRoteador\""
+par TopologiaLinha.no[4] meuNumero 4
+scalar TopologiaLinha.no[4] mensagensEnviadasFinal 40
+scalar TopologiaLinha.no[4] mensagensRecebidasFinal 40
+scalar TopologiaLinha.no[4] tempoConvergenciaFinal 2.11
+par TopologiaLinha.no[5] typename "\"NoRoteador\""
+par TopologiaLinha.no[5] meuNumero 5
+scalar TopologiaLinha.no[5] mensagensEnviadasFinal 40
+scalar TopologiaLinha.no[5] mensagensRecebidasFinal 40
+scalar TopologiaLinha.no[5] tempoConvergenciaFinal 1.12
+par TopologiaLinha.no[6] typename "\"NoRoteador\""
+par TopologiaLinha.no[6] meuNumero 6
+scalar TopologiaLinha.no[6] mensagensEnviadasFinal 20
+scalar TopologiaLinha.no[6] mensagensRecebidasFinal 20
+scalar TopologiaLinha.no[6] tempoConvergenciaFinal 6.12
+par TopologiaLinha typename "\"TopologiaLinha\""
+

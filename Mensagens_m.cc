@@ -1,5 +1,5 @@
 //
-// Generated file, do not edit! Created by opp_msgtool 6.1 from Messages.msg.
+// Generated file, do not edit! Created by opp_msgtool 6.1 from Mensagens.msg.
 //
 
 // Disable warnings about unused variables, empty switch stmts, etc:
@@ -28,7 +28,7 @@
 #include <sstream>
 #include <memory>
 #include <type_traits>
-#include "Messages_m.h"
+#include "Mensagens_m.h"
 
 namespace omnetpp {
 

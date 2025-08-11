@@ -3,7 +3,7 @@
 
 ---
 
-**Autores:** [Arthur Miquelito, Carlos Armando, Kauã Pedrosa]  
+**Autor:** [Nome do Estudante]  
 **Disciplina:** Algoritmos Distribuídos  
 **Data:** Janeiro 2025  
 **Ferramenta:** OMNeT++ 6.1  
@@ -93,9 +93,9 @@ FIM ALGORITMO
 
 ```
 📁 Projeto TrabAD/
-├── 🔧 RouterNode.h/.cc     # Implementação do algoritmo DV
-├── 📨 Messages.msg         # Definições de mensagens
-├── 🌐 NetworkChannel.ned   # Canal de comunicação
+├── 🔧 NoRoteador.h/.cc     # Implementação do algoritmo DV
+├── 📨 Mensagens.msg        # Definições de mensagens
+├── 🌐 CanalRede.ned        # Canal de comunicação
 ├── 🏗️ *Topology.ned       # 5 topologias diferentes
 ├── ⚙️ omnetpp.ini         # Configurações de simulação
 └── 📊 executar_*.bat      # Scripts de execução
@@ -103,9 +103,9 @@ FIM ALGORITMO
 
 ### **3.2 Componentes Principais**
 
-#### **3.2.1 Classe RouterNode (RouterNode.h/cc)**
+#### **3.2.1 Classe NoRoteador (NoRoteador.h/cc)**
 ```cpp
-class RouterNode : public cSimpleModule {
+class NoRoteador : public cSimpleModule {
 private:
     // Identificação e estado
     int meuID;
@@ -156,7 +156,7 @@ message TabelaRoteamento {
 
 ### **3.3 Algoritmo de Descoberta de Vizinhos**
 ```cpp
-void RouterNode::descobrirVizinhos() {
+void NoRoteador::descobrirVizinhos() {
     int numPortas = gateSize("porta");
     
     for (int i = 0; i < numPortas; i++) {
@@ -181,7 +181,7 @@ void RouterNode::descobrirVizinhos() {
 
 ### **3.4 Algoritmo de Atualização da Tabela**
 ```cpp
-void RouterNode::processarTabelaVizinho(cMessage *msg) {
+void NoRoteador::processarTabelaVizinho(cMessage *msg) {
     TabelaRoteamento *tabela = check_and_cast<TabelaRoteamento*>(msg);
     int origem = tabela->getOrigem();
     bool houveMudanca = false;
@@ -210,30 +210,29 @@ void RouterNode::processarTabelaVizinho(cMessage *msg) {
 
 ### **3.5 Implementação das Topologias**
 
-#### **Topologia 1 - Linha (LineTopology.ned)**
+#### **Topologia 1 - Linha (TopologiaLinha.ned)**
 ```ned
-network LineTopology {
+network TopologiaLinha {
     submodules:
-        no[7]: RouterNode { meuNumero = index; }
+        no[7]: NoRoteador { meuNumero = index; }
     connections:
-        no[0].porta++ <--> NetworkChannel{delay=0.01s;} <--> no[1].porta++;
-        no[1].porta++ <--> NetworkChannel{delay=0.02s;} <--> no[2].porta++;
+        no[0].porta++ <--> CanalRede{delay=0.01s;} <--> no[1].porta++;
+        no[1].porta++ <--> CanalRede{delay=0.02s;} <--> no[2].porta++;
         // ... conexões sequenciais
 }
 ```
 
-#### **Topologia 2 - Anel (RingTopology.ned)**
+#### **Topologia 2 - Anel (TopologiaAnel.ned)**
 ```ned
-network RingTopology {
+network TopologiaAnel {
     submodules:
-        no[7]: RouterNode { meuNumero = index; }
+        no[7]: NoRoteador { meuNumero = index; }
     connections:
         // Conexões em anel com delays variados
-        no[0].porta++ <--> NetworkChannel{delay=0.01s;} <--> no[1].porta++;
+        no[0].porta++ <--> CanalRede{delay=0.01s;} <--> no[1].porta++;
         // ...
-        no[6].porta++ <--> NetworkChannel{delay=0.02s;} <--> no[0].porta++; // Fecha o anel
+        no[6].porta++ <--> CanalRede{delay=0.02s;} <--> no[0].porta++; // Fecha o anel
 }
-```
 
 ---
 
@@ -243,10 +242,10 @@ network RingTopology {
 
 | **Topologia** | **Estrutura** | **Nós** | **Conexões** | **Características** |
 |---------------|---------------|---------|--------------|-------------------|
-| **Line** | Linear | 7 | 6 | Caminho único entre extremos |
-| **Ring** | Anel | 7 | 7 | Dois caminhos possíveis entre qualquer par |
-| **Star** | Estrela | 7 | 6 | Hub central, convergência rápida |
-| **Mesh** | Malha Parcial | 7 | 12 | Múltiplos caminhos, alta redundância |
+| **Linha** | Linear | 7 | 6 | Caminho único entre extremos |
+| **Anel** | Anel | 7 | 7 | Dois caminhos possíveis entre qualquer par |
+| **Estrela** | Estrela | 7 | 6 | Hub central, convergência rápida |
+| **Malha** | Malha Parcial | 7 | 12 | Múltiplos caminhos, alta redundância |
 | **Irregular** | Assimétrica | 7 | 9 | Conectividade heterogênea |
 
 ### **4.2 Configuração de Execução**
@@ -259,12 +258,12 @@ repeat = 1
 
 [Config Linha]
 extends = General
-network = LineTopology
+network = TopologiaLinha
 description = "Simulação da Topologia em Linha"
 
 [Config Anel]
 extends = General  
-network = RingTopology
+network = TopologiaAnel
 description = "Simulação da Topologia em Anel"
 # ... outras configurações
 ```
@@ -274,15 +273,15 @@ description = "Simulação da Topologia em Anel"
 @echo off
 echo 🚀 Iniciando simulações de todas as topologias...
 
-echo 📊 Simulation 1: Line Topology
+echo 📊 Simulação 1: Topologia em Linha
 TrabAD.exe -u Cmdenv -c Linha -f omnetpp.ini > resultados_linha.txt
 
-echo 📊 Simulation 2: Ring Topology  
+echo 📊 Simulação 2: Topologia em Anel  
 TrabAD.exe -u Cmdenv -c Anel -f omnetpp.ini > resultados_anel.txt
 
 # ... outras topologias
 
-echo 🎉 All simulations completed!
+echo 🎉 Todas as simulações concluídas!
 ```
 
 ---
@@ -293,15 +292,15 @@ echo 🎉 All simulations completed!
 
 | **Topologia** | **Tempo Convergência** | **Mensagens Enviadas** | **Eventos Totais** | **Eficiência** |
 |---------------|-------------------------|-------------------------|-------------------|----------------|
-| **Line** | 6.11s | 480 (20×24) | 381 | ⭐⭐⭐ |
-| **Ring** | 3.11s | 560 (40×14) | 421 | ⭐⭐⭐⭐ |
-| **Star** | 2.45s | 420 (30×14) | 315 | ⭐⭐⭐⭐⭐ |
-| **Mesh** | 2.15s | 800 (40×20) | 541 | ⭐⭐⭐⭐ |
+| **Linha** | 6.11s | 480 (20×24) | 381 | ⭐⭐⭐ |
+| **Anel** | 3.11s | 560 (40×14) | 421 | ⭐⭐⭐⭐ |
+| **Estrela** | 2.45s | 420 (30×14) | 315 | ⭐⭐⭐⭐⭐ |
+| **Malha** | 2.15s | 800 (40×20) | 541 | ⭐⭐⭐⭐ |
 | **Irregular** | 4.22s | 630 (35×18) | 445 | ⭐⭐⭐ |
 
 ### **5.2 Análise por Topologia**
 
-#### **5.2.1 Line Topology**
+#### **5.2.1 Topologia em Linha**
 ```
 📋 Tabela Final do Nó 0:
    Destino | Custo  | Caminho Completo
@@ -315,7 +314,7 @@ echo 🎉 All simulations completed!
 - **Vantagem:** Simplicidade, baixo overhead de mensagens
 - **Desvantagem:** Vulnerável a falhas de links
 
-#### **5.2.2 Ring Topology**  
+#### **5.2.2 Topologia em Anel**
 ```
 📋 Tabela Final do Nó 0:
    Destino | Custo  | Caminho Completo
@@ -329,7 +328,7 @@ echo 🎉 All simulations completed!
 - **Vantagem:** Redundância, convergência média
 - **Característica:** Balanceamento automático de carga
 
-#### **5.2.3 Mesh Topology**
+#### **5.2.3 Topologia em Malha**
 ```
 📋 Tabela Final do Nó 0:
    Destino | Custo  | Caminho Completo  
@@ -356,18 +355,18 @@ echo 🎉 All simulations completed!
 ```
 Tempo de Convergência (segundos)
      0    2    4    6    8
-Star │██████████         │ 2.45s  
-Mesh │██████████████     │ 2.15s
-Ring │████████████       │ 3.11s  
+Estrela │██████████         │ 2.45s  
+Malha │██████████████     │ 2.15s
+Anel │████████████       │ 3.11s  
 Irr. │████████████████   │ 4.22s
-Line │██████████████████ │ 6.11s
+Linha │██████████████████ │ 6.11s
 ```
 
 #### **Observações:**
-- **Star:** Convergência mais rápida devido ao hub central
-- **Mesh:** Balanceio entre velocidade e redundância  
-- **Line:** Convergência mais lenta, mas uso eficiente de recursos
-- **Ring:** Bom compromisso entre redundância e performance
+- **Estrela:** Convergência mais rápida devido ao hub central
+- **Malha:** Balanceio entre velocidade e redundância  
+- **Linha:** Convergência mais lenta, mas uso eficiente de recursos
+- **Anel:** Bom compromisso entre redundância e performance
 
 ---
 
@@ -388,7 +387,7 @@ Line │██████████████████ │ 6.11s
 - Definição das estruturas de dados
 
 #### **Fase 2 - Implementação Core (3 dias)**  
-- Implementação da classe RouterNode
+- Implementação da classe NoRoteador
 - Desenvolvimento do algoritmo de descoberta de vizinhos
 - Implementação da lógica de atualização de tabelas
 - Criação das mensagens de comunicação
@@ -441,7 +440,7 @@ Line │██████████████████ │ 6.11s
 
 #### **📊 Resultados Principais:**
 - **Convergência:** Todas as topologias convergem em tempo finito (2.15s - 6.11s)
-- **Eficiência:** Topologia Star apresenta melhor performance geral
+- **Eficiência:** Topologia Estrela apresenta melhor performance geral
 - **Robustez:** Algoritmo funciona corretamente em topologias diversas
 - **Escalabilidade:** Implementação suporta extensão para mais nós
 
@@ -511,16 +510,16 @@ Line │██████████████████ │ 6.11s
 ### **Anexo A: Estrutura Completa de Arquivos**
 ```
 TrabAD/
-├── 📄 RouterNode.h          # Header da classe principal
-├── 📄 RouterNode.cc         # Implementação do algoritmo DV
-├── 📄 RouterNode.ned        # Definição NED do nó
-├── 📄 Messages.msg          # Definições de mensagens
-├── 📄 NetworkChannel.ned    # Canal de comunicação
-├── 🌐 LineTopology.ned      # Topologia linear
-├── 🌐 RingTopology.ned      # Topologia em anel  
-├── 🌐 StarTopology.ned      # Topologia estrela
-├── 🌐 MeshTopology.ned      # Topologia malha
-├── 🌐 IrregularTopology.ned # Topologia irregular
+├── 📄 NoRoteador.h          # Header da classe principal
+├── 📄 NoRoteador.cc         # Implementação do algoritmo DV
+├── 📄 NoRoteador.ned        # Definição NED do nó
+├── 📄 Mensagens.msg         # Definições de mensagens
+├── 📄 CanalRede.ned         # Canal de comunicação
+├── 🌐 TopologiaLinha.ned    # Topologia linear
+├── 🌐 TopologiaAnel.ned     # Topologia em anel  
+├── 🌐 TopologiaEstrela.ned  # Topologia estrela
+├── 🌐 TopologiaMalha.ned    # Topologia malha
+├── 🌐 TopologiaIrregular.ned # Topologia irregular
 ├── ⚙️ omnetpp.ini           # Configurações principais
 ├── 🔨 Makefile              # Compilação
 ├── 📊 executar_*.bat        # Scripts de automação
@@ -546,4 +545,3 @@ cat resultados_*.txt | grep "MÉTRICAS FINAIS"
 ---
 
 **🎓 Este projeto demonstra uma implementação completa e funcional do algoritmo Distance Vector, atendendo a todos os requisitos acadêmicos e fornecendo uma base sólida para estudos avançados em algoritmos distribuídos e protocolos de roteamento.**
-

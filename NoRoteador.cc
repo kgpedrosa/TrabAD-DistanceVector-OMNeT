@@ -1,13 +1,13 @@
-#include "RouterNode.h"
-#include "Messages_m.h"
+#include "NoRoteador.h"
+#include "Mensagens_m.h"
 #include <algorithm>  // Para std::find
 
-Define_Module(RouterNode);
+Define_Module(NoRoteador);
 
-void RouterNode::initialize() {
+void NoRoteador::initialize() {
     // Passo 1: Descobrir quem sou eu
     meuID = par("meuNumero");
-    EV << "🏠 Sou o nó " << meuID << " e estou iniciando!\n";
+    EV << "Sou o nó " << meuID << " e estou iniciando!\n";
     
     // 📊 Inicializar métricas para avaliação
     totalMensagensEnviadas = 0;
@@ -20,20 +20,20 @@ void RouterNode::initialize() {
     
     // Passo 3: Começar minha tabela de roteamento
     // Para chegar em mim mesmo, o custo é zero e o próximo sou eu mesmo
-    InfoRota paraEuMesmo;
+    InformacaoRota paraEuMesmo;
     paraEuMesmo.custo = 0.0;
     paraEuMesmo.proximoVizinho = meuID;
     tabelaRoteamento[meuID] = paraEuMesmo;
     
     // Passo 4: Criar um timer para enviar minha tabela periodicamente
-    timerEnvio = new cMessage("enviarTabela");
-    scheduleAt(simTime() + 0.1, timerEnvio);  // Enviar a cada 0.1 segundos
+    temporizadorEnvio = new cMessage("enviarTabela");
+    scheduleAt(simTime() + 0.1, temporizadorEnvio);  // Enviar a cada 0.1 segundos
     
-    EV << "✅ Nó " << meuID << " configurado com " << listaVizinhos.size() << " vizinhos\n";
+    EV << "Nó " << meuID << " configurado com " << listaVizinhos.size() << " vizinhos\n";
 }
 
-void RouterNode::descobrirVizinhos() {
-    EV << "🔍 Nó " << meuID << " descobrindo vizinhos...\n";
+void NoRoteador::descobrirVizinhos() {
+    EV << "Nó " << meuID << " descobrindo vizinhos...\n";
     
     // Verificar quantas conexões eu tenho
     int numConexoes = gateSize("porta");
@@ -64,16 +64,16 @@ void RouterNode::descobrirVizinhos() {
         custoVizinhos[idVizinho] = custoComunicacao;
         listaVizinhos.push_back(idVizinho);
         
-        EV << "👋 Encontrei o vizinho " << idVizinho << " com custo " << custoComunicacao << "s\n";
+        EV << "Encontrei o vizinho " << idVizinho << " com custo " << custoComunicacao << "s\n";
     }
 }
 
-void RouterNode::handleMessage(cMessage *msg) {
+void NoRoteador::handleMessage(cMessage *msg) {
     // Se for meu timer, é hora de enviar minha tabela
-    if (msg == timerEnvio) {
+    if (msg == temporizadorEnvio) {
         enviarMinhaTabela();
         // Agendar próximo envio
-        scheduleAt(simTime() + 1.0, timerEnvio);  // A cada 1 segundo
+        scheduleAt(simTime() + 1.0, temporizadorEnvio);  // A cada 1 segundo
         return;
     }
     
@@ -84,12 +84,12 @@ void RouterNode::handleMessage(cMessage *msg) {
     }
     
     // Se chegou até aqui, não sei o que é essa mensagem
-    EV << "❓ Nó " << meuID << " recebeu mensagem desconhecida\n";
+    EV << "Nó " << meuID << " recebeu mensagem desconhecida\n";
     delete msg;
 }
 
-void RouterNode::enviarMinhaTabela() {
-    EV << "📤 Nó " << meuID << " enviando tabela para vizinhos\n";
+void NoRoteador::enviarMinhaTabela() {
+    EV << "Nó " << meuID << " enviando tabela para vizinhos\n";
     
     // Para cada vizinho, vou contar como chegar em cada destino
     for (int vizinho : listaVizinhos) {
@@ -136,12 +136,12 @@ void RouterNode::enviarMinhaTabela() {
     }
 }
 
-void RouterNode::processarTabelaVizinho(cMessage *msg) {
+void NoRoteador::processarTabelaVizinho(cMessage *msg) {
     TabelaRoteamento *tabela = check_and_cast<TabelaRoteamento*>(msg);
     int vizinhoQueEnviou = tabela->getRemetente();
     
     totalMensagensRecebidas++;  // 📊 Contar mensagem recebida
-    EV << "📥 Nó " << meuID << " recebeu tabela do vizinho " << vizinhoQueEnviou << "\n";
+    EV << "Nó " << meuID << " recebeu tabela do vizinho " << vizinhoQueEnviou << "\n";
     
     // Quanto custa falar com este vizinho?
     double custoParaVizinho = custoVizinhos[vizinhoQueEnviou];
@@ -159,13 +159,13 @@ void RouterNode::processarTabelaVizinho(cMessage *msg) {
         // Verificar se já conheço este destino
         if (tabelaRoteamento.find(destino) == tabelaRoteamento.end()) {
             // Destino novo! Vou aprender
-            InfoRota novaRota;
+            InformacaoRota novaRota;
             novaRota.custo = custoTotal;
             novaRota.proximoVizinho = vizinhoQueEnviou;
             tabelaRoteamento[destino] = novaRota;
             tabelaMudou = true;
             
-            EV << "🆕 Aprendi novo destino " << destino << " via vizinho " << vizinhoQueEnviou 
+            EV << "Aprendi novo destino " << destino << " via vizinho " << vizinhoQueEnviou
                << " com custo " << custoTotal << "\n";
         }
         else {
@@ -183,18 +183,18 @@ void RouterNode::processarTabelaVizinho(cMessage *msg) {
     }
     
     if (tabelaMudou) {
-        EV << "🔄 Minha tabela mudou! Vou mostrar como está agora:\n";
+        EV << "Minha tabela mudou! Vou mostrar como está agora:\n";
         mostrarMinhaTabela();
     } else {
-        // 📊 Se a tabela não mudou, pode ser que tenha convergido
+        // Se a tabela não mudou, pode ser que tenha convergido
         verificarConvergencia();
     }
     
     delete tabela;
 }
 
-void RouterNode::mostrarMinhaTabela() {
-    EV << "📋 Tabela de Roteamento do Nó " << meuID << ":\n";
+void NoRoteador::mostrarMinhaTabela() {
+    EV << "Tabela de Roteamento do Nó " << meuID << ":\n";
     EV << "   Destino | Custo  | Próximo | Caminho Completo\n";
     EV << "   --------|--------|---------|------------------\n";
     
@@ -208,8 +208,8 @@ void RouterNode::mostrarMinhaTabela() {
     EV << "\n";
 }
 
-std::string RouterNode::obterCaminhoCompleto(int destino) {
-    // 🛤️ Reconstrói o caminho completo seguindo os próximos saltos
+std::string NoRoteador::obterCaminhoCompleto(int destino) {
+    // Reconstrói o caminho completo seguindo os próximos saltos
     
     if (destino == meuID) {
         return std::to_string(meuID);  // Caminho para mim mesmo
@@ -223,11 +223,11 @@ std::string RouterNode::obterCaminhoCompleto(int destino) {
         // Procurar o próximo salto na tabela
         auto it = tabelaRoteamento.find(destino);
         if (it == tabelaRoteamento.end()) {
-            return caminho + " → ❌(sem rota)";  // Não há rota conhecida
+            return caminho + " -> (sem rota)";  // Não há rota conhecida
         }
         
         int proximoSalto = it->second.proximoVizinho;
-        caminho += " → " + std::to_string(proximoSalto);
+        caminho += " -> " + std::to_string(proximoSalto);
         
         if (proximoSalto == destino) {
             break;  // Chegamos ao destino
@@ -241,65 +241,65 @@ std::string RouterNode::obterCaminhoCompleto(int destino) {
         // Se o próximo salto for um vizinho direto, vamos direto ao destino
         if (std::find(listaVizinhos.begin(), listaVizinhos.end(), proximoSalto) != listaVizinhos.end()) {
             if (proximoSalto != destino) {
-                caminho += " → " + std::to_string(destino);
+                caminho += " -> " + std::to_string(destino);
             }
             break;
         }
     }
     
     if (passos >= 10) {
-        caminho += " → ❌(loop detectado)";
+        caminho += " -> (loop detectado)";
     }
     
     return caminho;
 }
 
-void RouterNode::verificarConvergencia() {
-    // 📊 Verificar se não houve mudanças recentes (possível convergência)
+void NoRoteador::verificarConvergencia() {
+    // Verificar se não houve mudanças recentes (possível convergência)
     if (!jaConvergiu) {
         // Simples heurística: se recebi mensagens mas não mudei, posso ter convergido
         jaConvergiu = true;
         tempoFimConvergencia = simTime();
         double tempoTotal = (tempoFimConvergencia - tempoInicioConvergencia).dbl();
         
-        EV << "🎯 Nó " << meuID << " possivelmente CONVERGIU em " << tempoTotal << "s\n";
+        EV << "Nó " << meuID << " possivelmente CONVERGIU em " << tempoTotal << "s\n";
         
-        // 📊 Gravar métricas como scalars para análise
+        // Gravar métricas como scalars para análise
         recordScalar("mensagensEnviadas", totalMensagensEnviadas);
         recordScalar("mensagensRecebidas", totalMensagensRecebidas);
         recordScalar("tempoConvergencia", tempoTotal);
     }
 }
 
-void RouterNode::finish() {
-    EV << "🏁 Nó " << meuID << " finalizando. Tabela final:\n";
+void NoRoteador::finish() {
+    EV << "Nó " << meuID << " finalizando. Tabela final:\n";
     mostrarMinhaTabela();
     
-    // 📊 Gravar métricas finais
+    // Gravar métricas finais
     recordScalar("mensagensEnviadasFinal", totalMensagensEnviadas);
     recordScalar("mensagensRecebidasFinal", totalMensagensRecebidas);
     
     if (jaConvergiu) {
         double tempoTotal = (tempoFimConvergencia - tempoInicioConvergencia).dbl();
         recordScalar("tempoConvergenciaFinal", tempoTotal);
-        EV << "📊 MÉTRICAS FINAIS - Enviadas: " << totalMensagensEnviadas 
+        EV << "MÉTRICAS FINAIS - Enviadas: " << totalMensagensEnviadas
            << ", Recebidas: " << totalMensagensRecebidas 
            << ", Tempo Convergência: " << tempoTotal << "s\n";
     }
     
-    // 🔍 Verificar consistência: mostrar rota completa para cada destino
-    EV << "🔍 VERIFICAÇÃO DE CONSISTÊNCIA - CAMINHOS COMPLETOS:\n";
+    // Verificar consistência: mostrar rota completa para cada destino
+    EV << "VERIFICAÇÃO DE CONSISTÊNCIA - CAMINHOS COMPLETOS:\n";
     for (auto& entrada : tabelaRoteamento) {
         if (entrada.first != meuID) {  // Não mostrar rota para mim mesmo
             std::string caminhoCompleto = obterCaminhoCompleto(entrada.first);
-            EV << "🛤️ Para destino " << entrada.first << ": custo=" << entrada.second.custo 
+            EV << "Para destino " << entrada.first << ": custo=" << entrada.second.custo
                << "s, caminho=" << caminhoCompleto << "\n";
         }
     }
     
     // Limpar o timer
-    if (timerEnvio) {
-        cancelAndDelete(timerEnvio);
-        timerEnvio = nullptr;
+    if (temporizadorEnvio) {
+        cancelAndDelete(temporizadorEnvio);
+        temporizadorEnvio = nullptr;
     }
 }

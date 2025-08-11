@@ -1,0 +1,60 @@
+file 2815 1754715030                                            
+version 3
+run General-0-20250809-01:49:37-14248
+attr configname General
+attr datetime 20250809-01:49:37
+attr datetimef 20250809-014937
+attr experiment General
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network Irregular7
+attr processid 14248
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config network Irregular7
+config sim-time-limit 20s
+config repeat 1
+config **.recordScalar true
+config **.recordVector true
+
+vector 0 Irregular7.nodo[0] dvEnviadas:vector ETV
+attr recordingmode vector
+attr source mensagensDVEnviadas
+attr title "DV enviadas"
+0	1518 210 1 115 0.0001 0.1401 14 1 1 14 14
+vector 1 Irregular7.nodo[1] dvEnviadas:vector ETV
+attr recordingmode vector
+attr source mensagensDVEnviadas
+attr title "DV enviadas"
+1	1728 180 2 104 0.0001 0.1201 12 1 1 12 12
+vector 2 Irregular7.nodo[2] dvEnviadas:vector ETV
+attr recordingmode vector
+attr source mensagensDVEnviadas
+attr title "DV enviadas"
+2	1908 177 3 66 0.0001 0.0801 12 1 1 12 12
+vector 3 Irregular7.nodo[3] dvEnviadas:vector ETV
+attr recordingmode vector
+attr source mensagensDVEnviadas
+attr title "DV enviadas"
+3	2085 178 4 98 0.0001 0.1101 12 1 1 12 12
+vector 4 Irregular7.nodo[4] dvEnviadas:vector ETV
+attr recordingmode vector
+attr source mensagensDVEnviadas
+attr title "DV enviadas"
+4	2263 222 5 78 0.0001 0.0901 15 1 1 15 15
+vector 5 Irregular7.nodo[5] dvEnviadas:vector ETV
+attr recordingmode vector
+attr source mensagensDVEnviadas
+attr title "DV enviadas"
+5	2485 180 6 111 0.0001 0.1301 12 1 1 12 12
+vector 6 Irregular7.nodo[6] dvEnviadas:vector ETV
+attr recordingmode vector
+attr source mensagensDVEnviadas
+attr title "DV enviadas"
+6	2665 150 7 90 0.0001 0.1081 10 1 1 10 10

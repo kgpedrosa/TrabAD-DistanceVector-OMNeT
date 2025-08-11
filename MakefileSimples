@@ -122,4 +122,3 @@ help:
 
 # Incluir dependências
 -include $(OBJS:%=%.d) $(MSGFILES:%.msg=$O/%_m.h.d)
-

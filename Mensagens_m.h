@@ -1,9 +1,9 @@
 //
-// Generated file, do not edit! Created by opp_msgtool 6.1 from Messages.msg.
+// Generated file, do not edit! Created by opp_msgtool 6.1 from Mensagens.msg.
 //
 
-#ifndef __MESSAGES_M_H
-#define __MESSAGES_M_H
+#ifndef __MENSAGENS_M_H
+#define __MENSAGENS_M_H
 
 #if defined(__clang__)
 #  pragma clang diagnostic ignored "-Wreserved-id-macro"
@@ -18,11 +18,12 @@
 
 class TabelaRoteamento;
 /**
- * Class generated from <tt>Messages.msg:9</tt> by opp_msgtool.
+ * Class generated from <tt>Mensagens.msg:10</tt> by opp_msgtool.
  * <pre>
  * // Esta mensagem contém a tabela de roteamento de um nó
  * // É como se fosse uma "carta" dizendo: "Ei vizinho, eu sei chegar nestes lugares!"
  * packet TabelaRoteamento
+ * 
  * {
  *     int remetente;          // Quem está enviando esta tabela
  *     int destinos[];         // Lista de lugares que eu sei chegar
@@ -86,5 +87,5 @@ template<> inline TabelaRoteamento *fromAnyPtr(any_ptr ptr) { return check_and_c
 
 }  // namespace omnetpp
 
-#endif // ifndef __MESSAGES_M_H
+#endif // ifndef __MENSAGENS_M_H
 
