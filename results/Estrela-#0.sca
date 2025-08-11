@@ -1,8 +1,8 @@
 version 3
-run Estrela-0-20250810-20:11:01-12316
+run Estrela-0-20250811-02:19:18-6324
 attr configname Estrela
-attr datetime 20250810-20:11:01
-attr datetimef 20250810-201101
+attr datetime 20250811-02:19:18
+attr datetimef 20250811-021918
 attr experiment Estrela
 attr inifile omnetpp.ini
 attr iterationvars ""
@@ -10,7 +10,7 @@ attr iterationvarsd ""
 attr iterationvarsf ""
 attr measurement ""
 attr network TopologiaEstrela
-attr processid 12316
+attr processid 6324
 attr repetition 0
 attr replication #0
 attr resultdir results
@@ -26,25 +26,25 @@ config **.recordVector true
 
 scalar TopologiaEstrela.no[0] mensagensEnviadas 12
 scalar TopologiaEstrela.no[0] mensagensRecebidas 7
-scalar TopologiaEstrela.no[0] tempoConvergencia 1.11
+scalar TopologiaEstrela.no[0] tempoConvergencia 2.01
 scalar TopologiaEstrela.no[1] mensagensEnviadas 3
 scalar TopologiaEstrela.no[1] mensagensRecebidas 3
-scalar TopologiaEstrela.no[1] tempoConvergencia 2.11
+scalar TopologiaEstrela.no[1] tempoConvergencia 3.01
 scalar TopologiaEstrela.no[4] mensagensEnviadas 3
 scalar TopologiaEstrela.no[4] mensagensRecebidas 3
-scalar TopologiaEstrela.no[4] tempoConvergencia 2.112
+scalar TopologiaEstrela.no[4] tempoConvergencia 3.012
 scalar TopologiaEstrela.no[2] mensagensEnviadas 3
 scalar TopologiaEstrela.no[2] mensagensRecebidas 3
-scalar TopologiaEstrela.no[2] tempoConvergencia 2.115
+scalar TopologiaEstrela.no[2] tempoConvergencia 3.015
 scalar TopologiaEstrela.no[6] mensagensEnviadas 3
 scalar TopologiaEstrela.no[6] mensagensRecebidas 3
-scalar TopologiaEstrela.no[6] tempoConvergencia 2.118
+scalar TopologiaEstrela.no[6] tempoConvergencia 3.018
 scalar TopologiaEstrela.no[3] mensagensEnviadas 3
 scalar TopologiaEstrela.no[3] mensagensRecebidas 3
-scalar TopologiaEstrela.no[3] tempoConvergencia 2.12
+scalar TopologiaEstrela.no[3] tempoConvergencia 3.02
 scalar TopologiaEstrela.no[5] mensagensEnviadas 3
 scalar TopologiaEstrela.no[5] mensagensRecebidas 3
-scalar TopologiaEstrela.no[5] tempoConvergencia 2.125
+scalar TopologiaEstrela.no[5] tempoConvergencia 3.025
 par TopologiaEstrela.no[0].porta$o[0].channel typename "\"ned.DelayChannel\""
 par TopologiaEstrela.no[0].porta$o[0].channel disabled false
 attr mutable ""
@@ -119,38 +119,38 @@ attr mutable ""
 attr unit s
 par TopologiaEstrela.no[0] typename "\"NoRoteador\""
 par TopologiaEstrela.no[0] meuNumero 0
-scalar TopologiaEstrela.no[0] mensagensEnviadasFinal 120
-scalar TopologiaEstrela.no[0] mensagensRecebidasFinal 120
-scalar TopologiaEstrela.no[0] tempoConvergenciaFinal 1.11
+scalar TopologiaEstrela.no[0] mensagensEnviadasFinal 30
+scalar TopologiaEstrela.no[0] mensagensRecebidasFinal 36
+scalar TopologiaEstrela.no[0] tempoConvergenciaFinal 0
 par TopologiaEstrela.no[1] typename "\"NoRoteador\""
 par TopologiaEstrela.no[1] meuNumero 1
-scalar TopologiaEstrela.no[1] mensagensEnviadasFinal 20
-scalar TopologiaEstrela.no[1] mensagensRecebidasFinal 20
-scalar TopologiaEstrela.no[1] tempoConvergenciaFinal 2.11
+scalar TopologiaEstrela.no[1] mensagensEnviadasFinal 6
+scalar TopologiaEstrela.no[1] mensagensRecebidasFinal 5
+scalar TopologiaEstrela.no[1] tempoConvergenciaFinal 0
 par TopologiaEstrela.no[2] typename "\"NoRoteador\""
 par TopologiaEstrela.no[2] meuNumero 2
-scalar TopologiaEstrela.no[2] mensagensEnviadasFinal 20
-scalar TopologiaEstrela.no[2] mensagensRecebidasFinal 20
-scalar TopologiaEstrela.no[2] tempoConvergenciaFinal 2.115
+scalar TopologiaEstrela.no[2] mensagensEnviadasFinal 6
+scalar TopologiaEstrela.no[2] mensagensRecebidasFinal 5
+scalar TopologiaEstrela.no[2] tempoConvergenciaFinal 0
 par TopologiaEstrela.no[3] typename "\"NoRoteador\""
 par TopologiaEstrela.no[3] meuNumero 3
-scalar TopologiaEstrela.no[3] mensagensEnviadasFinal 20
-scalar TopologiaEstrela.no[3] mensagensRecebidasFinal 20
-scalar TopologiaEstrela.no[3] tempoConvergenciaFinal 2.12
+scalar TopologiaEstrela.no[3] mensagensEnviadasFinal 6
+scalar TopologiaEstrela.no[3] mensagensRecebidasFinal 5
+scalar TopologiaEstrela.no[3] tempoConvergenciaFinal 0
 par TopologiaEstrela.no[4] typename "\"NoRoteador\""
 par TopologiaEstrela.no[4] meuNumero 4
-scalar TopologiaEstrela.no[4] mensagensEnviadasFinal 20
-scalar TopologiaEstrela.no[4] mensagensRecebidasFinal 20
-scalar TopologiaEstrela.no[4] tempoConvergenciaFinal 2.112
+scalar TopologiaEstrela.no[4] mensagensEnviadasFinal 6
+scalar TopologiaEstrela.no[4] mensagensRecebidasFinal 5
+scalar TopologiaEstrela.no[4] tempoConvergenciaFinal 0
 par TopologiaEstrela.no[5] typename "\"NoRoteador\""
 par TopologiaEstrela.no[5] meuNumero 5
-scalar TopologiaEstrela.no[5] mensagensEnviadasFinal 20
-scalar TopologiaEstrela.no[5] mensagensRecebidasFinal 20
-scalar TopologiaEstrela.no[5] tempoConvergenciaFinal 2.125
+scalar TopologiaEstrela.no[5] mensagensEnviadasFinal 6
+scalar TopologiaEstrela.no[5] mensagensRecebidasFinal 5
+scalar TopologiaEstrela.no[5] tempoConvergenciaFinal 0
 par TopologiaEstrela.no[6] typename "\"NoRoteador\""
 par TopologiaEstrela.no[6] meuNumero 6
-scalar TopologiaEstrela.no[6] mensagensEnviadasFinal 20
-scalar TopologiaEstrela.no[6] mensagensRecebidasFinal 20
-scalar TopologiaEstrela.no[6] tempoConvergenciaFinal 2.118
+scalar TopologiaEstrela.no[6] mensagensEnviadasFinal 6
+scalar TopologiaEstrela.no[6] mensagensRecebidasFinal 5
+scalar TopologiaEstrela.no[6] tempoConvergenciaFinal 0
 par TopologiaEstrela typename "\"TopologiaEstrela\""
 

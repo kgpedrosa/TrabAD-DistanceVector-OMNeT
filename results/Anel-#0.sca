@@ -1,8 +1,8 @@
 version 3
-run Anel-0-20250810-20:09:38-13700
+run Anel-0-20250811-02:18:36-6324
 attr configname Anel
-attr datetime 20250810-20:09:38
-attr datetimef 20250810-200938
+attr datetime 20250811-02:18:36
+attr datetimef 20250811-021836
 attr experiment Anel
 attr inifile omnetpp.ini
 attr iterationvars ""
@@ -10,7 +10,7 @@ attr iterationvarsd ""
 attr iterationvarsf ""
 attr measurement ""
 attr network TopologiaAnel
-attr processid 13700
+attr processid 6324
 attr repetition 0
 attr replication #0
 attr resultdir results
@@ -26,25 +26,25 @@ config **.recordVector true
 
 scalar TopologiaAnel.no[1] mensagensEnviadas 8
 scalar TopologiaAnel.no[1] mensagensRecebidas 7
-scalar TopologiaAnel.no[1] tempoConvergencia 3.11
+scalar TopologiaAnel.no[1] tempoConvergencia 4.01
 scalar TopologiaAnel.no[0] mensagensEnviadas 8
 scalar TopologiaAnel.no[0] mensagensRecebidas 7
-scalar TopologiaAnel.no[0] tempoConvergencia 3.11
+scalar TopologiaAnel.no[0] tempoConvergencia 4.01
 scalar TopologiaAnel.no[5] mensagensEnviadas 8
 scalar TopologiaAnel.no[5] mensagensRecebidas 7
-scalar TopologiaAnel.no[5] tempoConvergencia 3.11
+scalar TopologiaAnel.no[5] tempoConvergencia 4.01
 scalar TopologiaAnel.no[4] mensagensEnviadas 8
 scalar TopologiaAnel.no[4] mensagensRecebidas 7
-scalar TopologiaAnel.no[4] tempoConvergencia 3.11
+scalar TopologiaAnel.no[4] tempoConvergencia 4.01
 scalar TopologiaAnel.no[3] mensagensEnviadas 8
 scalar TopologiaAnel.no[3] mensagensRecebidas 7
-scalar TopologiaAnel.no[3] tempoConvergencia 3.115
+scalar TopologiaAnel.no[3] tempoConvergencia 4.015
 scalar TopologiaAnel.no[2] mensagensEnviadas 8
 scalar TopologiaAnel.no[2] mensagensRecebidas 7
-scalar TopologiaAnel.no[2] tempoConvergencia 3.115
+scalar TopologiaAnel.no[2] tempoConvergencia 4.015
 scalar TopologiaAnel.no[6] mensagensEnviadas 8
 scalar TopologiaAnel.no[6] mensagensRecebidas 7
-scalar TopologiaAnel.no[6] tempoConvergencia 3.12
+scalar TopologiaAnel.no[6] tempoConvergencia 4.02
 par TopologiaAnel.no[0].porta$o[0].channel typename "\"ned.DelayChannel\""
 par TopologiaAnel.no[0].porta$o[0].channel disabled false
 attr mutable ""
@@ -131,38 +131,38 @@ attr mutable ""
 attr unit s
 par TopologiaAnel.no[0] typename "\"NoRoteador\""
 par TopologiaAnel.no[0] meuNumero 0
-scalar TopologiaAnel.no[0] mensagensEnviadasFinal 40
-scalar TopologiaAnel.no[0] mensagensRecebidasFinal 40
-scalar TopologiaAnel.no[0] tempoConvergenciaFinal 3.11
+scalar TopologiaAnel.no[0] mensagensEnviadasFinal 14
+scalar TopologiaAnel.no[0] mensagensRecebidasFinal 14
+scalar TopologiaAnel.no[0] tempoConvergenciaFinal 0
 par TopologiaAnel.no[1] typename "\"NoRoteador\""
 par TopologiaAnel.no[1] meuNumero 1
-scalar TopologiaAnel.no[1] mensagensEnviadasFinal 40
-scalar TopologiaAnel.no[1] mensagensRecebidasFinal 40
-scalar TopologiaAnel.no[1] tempoConvergenciaFinal 3.11
+scalar TopologiaAnel.no[1] mensagensEnviadasFinal 14
+scalar TopologiaAnel.no[1] mensagensRecebidasFinal 14
+scalar TopologiaAnel.no[1] tempoConvergenciaFinal 0
 par TopologiaAnel.no[2] typename "\"NoRoteador\""
 par TopologiaAnel.no[2] meuNumero 2
-scalar TopologiaAnel.no[2] mensagensEnviadasFinal 40
-scalar TopologiaAnel.no[2] mensagensRecebidasFinal 40
-scalar TopologiaAnel.no[2] tempoConvergenciaFinal 3.115
+scalar TopologiaAnel.no[2] mensagensEnviadasFinal 14
+scalar TopologiaAnel.no[2] mensagensRecebidasFinal 14
+scalar TopologiaAnel.no[2] tempoConvergenciaFinal 0
 par TopologiaAnel.no[3] typename "\"NoRoteador\""
 par TopologiaAnel.no[3] meuNumero 3
-scalar TopologiaAnel.no[3] mensagensEnviadasFinal 40
-scalar TopologiaAnel.no[3] mensagensRecebidasFinal 40
-scalar TopologiaAnel.no[3] tempoConvergenciaFinal 3.115
+scalar TopologiaAnel.no[3] mensagensEnviadasFinal 14
+scalar TopologiaAnel.no[3] mensagensRecebidasFinal 14
+scalar TopologiaAnel.no[3] tempoConvergenciaFinal 0
 par TopologiaAnel.no[4] typename "\"NoRoteador\""
 par TopologiaAnel.no[4] meuNumero 4
-scalar TopologiaAnel.no[4] mensagensEnviadasFinal 40
-scalar TopologiaAnel.no[4] mensagensRecebidasFinal 40
-scalar TopologiaAnel.no[4] tempoConvergenciaFinal 3.11
+scalar TopologiaAnel.no[4] mensagensEnviadasFinal 14
+scalar TopologiaAnel.no[4] mensagensRecebidasFinal 14
+scalar TopologiaAnel.no[4] tempoConvergenciaFinal 0
 par TopologiaAnel.no[5] typename "\"NoRoteador\""
 par TopologiaAnel.no[5] meuNumero 5
-scalar TopologiaAnel.no[5] mensagensEnviadasFinal 40
-scalar TopologiaAnel.no[5] mensagensRecebidasFinal 40
-scalar TopologiaAnel.no[5] tempoConvergenciaFinal 3.11
+scalar TopologiaAnel.no[5] mensagensEnviadasFinal 14
+scalar TopologiaAnel.no[5] mensagensRecebidasFinal 14
+scalar TopologiaAnel.no[5] tempoConvergenciaFinal 0
 par TopologiaAnel.no[6] typename "\"NoRoteador\""
 par TopologiaAnel.no[6] meuNumero 6
-scalar TopologiaAnel.no[6] mensagensEnviadasFinal 40
-scalar TopologiaAnel.no[6] mensagensRecebidasFinal 40
-scalar TopologiaAnel.no[6] tempoConvergenciaFinal 3.12
+scalar TopologiaAnel.no[6] mensagensEnviadasFinal 14
+scalar TopologiaAnel.no[6] mensagensRecebidasFinal 14
+scalar TopologiaAnel.no[6] tempoConvergenciaFinal 0
 par TopologiaAnel typename "\"TopologiaAnel\""
 

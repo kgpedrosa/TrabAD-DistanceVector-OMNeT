@@ -1,8 +1,8 @@
 version 3
-run Irregular-0-20250810-20:43:28-4188
+run Irregular-0-20250811-02:17:17-1488
 attr configname Irregular
-attr datetime 20250810-20:43:28
-attr datetimef 20250810-204328
+attr datetime 20250811-02:17:17
+attr datetimef 20250811-021717
 attr experiment Irregular
 attr inifile omnetpp.ini
 attr iterationvars ""
@@ -10,7 +10,7 @@ attr iterationvarsd ""
 attr iterationvarsf ""
 attr measurement ""
 attr network TopologiaIrregular
-attr processid 4188
+attr processid 1488
 attr repetition 0
 attr replication #0
 attr resultdir results
@@ -26,25 +26,25 @@ config **.recordVector true
 
 scalar TopologiaIrregular.no[1] mensagensEnviadas 6
 scalar TopologiaIrregular.no[1] mensagensRecebidas 4
-scalar TopologiaIrregular.no[1] tempoConvergencia 1.11
+scalar TopologiaIrregular.no[1] tempoConvergencia 2.01
 scalar TopologiaIrregular.no[2] mensagensEnviadas 6
 scalar TopologiaIrregular.no[2] mensagensRecebidas 5
-scalar TopologiaIrregular.no[2] tempoConvergencia 1.12
+scalar TopologiaIrregular.no[2] tempoConvergencia 2.02
 scalar TopologiaIrregular.no[5] mensagensEnviadas 6
 scalar TopologiaIrregular.no[5] mensagensRecebidas 6
-scalar TopologiaIrregular.no[5] tempoConvergencia 1.125
+scalar TopologiaIrregular.no[5] tempoConvergencia 2.025
 scalar TopologiaIrregular.no[3] mensagensEnviadas 9
 scalar TopologiaIrregular.no[3] mensagensRecebidas 7
-scalar TopologiaIrregular.no[3] tempoConvergencia 2.11
+scalar TopologiaIrregular.no[3] tempoConvergencia 3.01
 scalar TopologiaIrregular.no[4] mensagensEnviadas 9
 scalar TopologiaIrregular.no[4] mensagensRecebidas 8
-scalar TopologiaIrregular.no[4] tempoConvergencia 2.115
+scalar TopologiaIrregular.no[4] tempoConvergencia 3.015
 scalar TopologiaIrregular.no[0] mensagensEnviadas 10
 scalar TopologiaIrregular.no[0] mensagensRecebidas 9
-scalar TopologiaIrregular.no[0] tempoConvergencia 4.11
+scalar TopologiaIrregular.no[0] tempoConvergencia 5.01
 scalar TopologiaIrregular.no[6] mensagensEnviadas 5
 scalar TopologiaIrregular.no[6] mensagensRecebidas 5
-scalar TopologiaIrregular.no[6] tempoConvergencia 4.125
+scalar TopologiaIrregular.no[6] tempoConvergencia 5.025
 par TopologiaIrregular.no[0].porta$o[0].channel typename "\"ned.DelayChannel\""
 par TopologiaIrregular.no[0].porta$o[0].channel disabled false
 attr mutable ""
@@ -155,38 +155,38 @@ attr mutable ""
 attr unit s
 par TopologiaIrregular.no[0] typename "\"NoRoteador\""
 par TopologiaIrregular.no[0] meuNumero 0
-scalar TopologiaIrregular.no[0] mensagensEnviadasFinal 40
-scalar TopologiaIrregular.no[0] mensagensRecebidasFinal 40
-scalar TopologiaIrregular.no[0] tempoConvergenciaFinal 4.11
+scalar TopologiaIrregular.no[0] mensagensEnviadasFinal 16
+scalar TopologiaIrregular.no[0] mensagensRecebidasFinal 10
+scalar TopologiaIrregular.no[0] tempoConvergenciaFinal 0
 par TopologiaIrregular.no[1] typename "\"NoRoteador\""
 par TopologiaIrregular.no[1] meuNumero 1
-scalar TopologiaIrregular.no[1] mensagensEnviadasFinal 60
-scalar TopologiaIrregular.no[1] mensagensRecebidasFinal 60
-scalar TopologiaIrregular.no[1] tempoConvergenciaFinal 1.11
+scalar TopologiaIrregular.no[1] mensagensEnviadasFinal 15
+scalar TopologiaIrregular.no[1] mensagensRecebidasFinal 19
+scalar TopologiaIrregular.no[1] tempoConvergenciaFinal 0
 par TopologiaIrregular.no[2] typename "\"NoRoteador\""
 par TopologiaIrregular.no[2] meuNumero 2
-scalar TopologiaIrregular.no[2] mensagensEnviadasFinal 60
-scalar TopologiaIrregular.no[2] mensagensRecebidasFinal 60
-scalar TopologiaIrregular.no[2] tempoConvergenciaFinal 1.12
+scalar TopologiaIrregular.no[2] mensagensEnviadasFinal 15
+scalar TopologiaIrregular.no[2] mensagensRecebidasFinal 19
+scalar TopologiaIrregular.no[2] tempoConvergenciaFinal 0
 par TopologiaIrregular.no[3] typename "\"NoRoteador\""
 par TopologiaIrregular.no[3] meuNumero 3
-scalar TopologiaIrregular.no[3] mensagensEnviadasFinal 60
-scalar TopologiaIrregular.no[3] mensagensRecebidasFinal 60
-scalar TopologiaIrregular.no[3] tempoConvergenciaFinal 2.11
+scalar TopologiaIrregular.no[3] mensagensEnviadasFinal 18
+scalar TopologiaIrregular.no[3] mensagensRecebidasFinal 16
+scalar TopologiaIrregular.no[3] tempoConvergenciaFinal 0
 par TopologiaIrregular.no[4] typename "\"NoRoteador\""
 par TopologiaIrregular.no[4] meuNumero 4
-scalar TopologiaIrregular.no[4] mensagensEnviadasFinal 60
-scalar TopologiaIrregular.no[4] mensagensRecebidasFinal 60
-scalar TopologiaIrregular.no[4] tempoConvergenciaFinal 2.115
+scalar TopologiaIrregular.no[4] mensagensEnviadasFinal 18
+scalar TopologiaIrregular.no[4] mensagensRecebidasFinal 16
+scalar TopologiaIrregular.no[4] tempoConvergenciaFinal 0
 par TopologiaIrregular.no[5] typename "\"NoRoteador\""
 par TopologiaIrregular.no[5] meuNumero 5
-scalar TopologiaIrregular.no[5] mensagensEnviadasFinal 60
-scalar TopologiaIrregular.no[5] mensagensRecebidasFinal 60
-scalar TopologiaIrregular.no[5] tempoConvergenciaFinal 1.125
+scalar TopologiaIrregular.no[5] mensagensEnviadasFinal 15
+scalar TopologiaIrregular.no[5] mensagensRecebidasFinal 20
+scalar TopologiaIrregular.no[5] tempoConvergenciaFinal 0
 par TopologiaIrregular.no[6] typename "\"NoRoteador\""
 par TopologiaIrregular.no[6] meuNumero 6
-scalar TopologiaIrregular.no[6] mensagensEnviadasFinal 20
-scalar TopologiaIrregular.no[6] mensagensRecebidasFinal 20
-scalar TopologiaIrregular.no[6] tempoConvergenciaFinal 4.125
+scalar TopologiaIrregular.no[6] mensagensEnviadasFinal 8
+scalar TopologiaIrregular.no[6] mensagensRecebidasFinal 5
+scalar TopologiaIrregular.no[6] tempoConvergenciaFinal 0
 par TopologiaIrregular typename "\"TopologiaIrregular\""
 
