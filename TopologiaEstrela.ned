@@ -9,6 +9,8 @@ network TopologiaEstrela
         no[7]: NoRoteador { 
             meuNumero = index;
         }
+        
+
     
     connections:
         // Nó 0 (centro) conectado a todos os outros

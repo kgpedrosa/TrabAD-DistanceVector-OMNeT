@@ -1,10 +1,21 @@
 #include "NoRoteador.h"
 #include "Mensagens_m.h"
+
 #include <algorithm>
 #include <iomanip>
 #include <sstream>
 
 Define_Module(NoRoteador);
+
+// Inicialização das variáveis estáticas para métricas globais
+int NoRoteador::totalNosConvergiu = 0;
+int NoRoteador::totalMensagensEnviadasRede = 0;
+int NoRoteador::totalMensagensRecebidasRede = 0;
+double NoRoteador::tempoInicioRede = 0.0;
+double NoRoteador::tempoFimConvergenciaRede = 0.0;
+bool NoRoteador::redeConvergiu = false;
+int NoRoteador::totalNosRede = 0;
+bool NoRoteador::resumoGlobalMostrado = false;
 
 void NoRoteador::initialize() {
     // Passo 1: Descobrir quem sou eu
@@ -16,6 +27,30 @@ void NoRoteador::initialize() {
     tempoInicioConvergencia = simTime();
     jaConvergiu = false;
     ciclosAposConvergencia = 0;
+    
+    // Inicializar variáveis de convergência
+    ciclosEstaveis = 0;
+    tabelaAnterior.clear();
+    
+    // Inicializar métricas globais (apenas no primeiro nó)
+    if (meuID == 0) {
+        // Reinicializar TODAS as variáveis estáticas para nova simulação
+        totalNosConvergiu = 0;
+        totalMensagensEnviadasRede = 0;
+        totalMensagensRecebidasRede = 0;
+        tempoInicioRede = simTime().dbl();
+        tempoFimConvergenciaRede = 0.0; // IMPORTANTE: reinicializar!
+        redeConvergiu = false;
+        resumoGlobalMostrado = false;
+        
+        // Descobrir total de nós na rede
+        cModule *network = getParentModule();
+        totalNosRede = network->getSubmoduleVectorSize("no");
+        
+        EV << "=== INICIALIZACAO DA REDE ===\n";
+        EV << "Total de nos na rede: " << totalNosRede << "\n";
+        EV << "=============================\n\n";
+    }
     
     // Passo 2: Descobrir meus vizinhos
     descobrirVizinhos();
@@ -195,25 +230,71 @@ void NoRoteador::processarTabelaVizinho(cMessage *msg) {
 }
 
 void NoRoteador::verificarConvergencia() {
-    if (!jaConvergiu && simTime().dbl() >= 8.0) {
-        jaConvergiu = true;
-        tempoFimConvergencia = simTime();
-        double tempoTotal = (tempoFimConvergencia - tempoInicioConvergencia).dbl();
-        
-        // MÉTRICA 1: Tempo de Convergência
-        EV << "\n=== MÉTRICAS DE CONVERGÊNCIA - Nó " << meuID << " ===\n";
-        EV << "Tempo de convergência: " << std::fixed << std::setprecision(3) << tempoTotal << "s\n";
-        
-        // MÉTRICA 2: Total de Mensagens Trocadas
-        int totalMensagens = totalMensagensEnviadas + totalMensagensRecebidas;
-        EV << "Mensagens enviadas: " << totalMensagensEnviadas << "\n";
-        EV << "Mensagens recebidas: " << totalMensagensRecebidas << "\n";
-        EV << "Total de mensagens trocadas: " << totalMensagens << "\n";
-        EV << "==========================================\n\n";
-        
-        recordScalar("tempoConvergencia", tempoTotal);
-        recordScalar("mensagensEnviadas", totalMensagensEnviadas);
-        recordScalar("mensagensRecebidas", totalMensagensRecebidas);
+    // Verificar se a tabela de roteamento está estável
+    bool tabelaEstavel = true;
+    
+    // Comparar com a tabela anterior
+    if (!tabelaAnterior.empty()) {
+        for (auto& entrada : tabelaRoteamento) {
+            int destino = entrada.first;
+            auto entradaAnterior = tabelaAnterior.find(destino);
+            
+            if (entradaAnterior == tabelaAnterior.end() || 
+                std::abs(entrada.second.custo - entradaAnterior->second.custo) > 0.001) {
+                tabelaEstavel = false;
+                break;
+            }
+        }
+    } else {
+        tabelaEstavel = false; // Primeira verificação
+    }
+    
+    // Atualizar tabela anterior
+    tabelaAnterior = tabelaRoteamento;
+    
+    // Se a tabela está estável por 3 ciclos consecutivos, considerar convergido
+    if (tabelaEstavel) {
+        ciclosEstaveis++;
+        if (ciclosEstaveis >= 3 && !jaConvergiu) {
+            jaConvergiu = true;
+            tempoFimConvergencia = simTime();
+            double tempoTotal = (tempoFimConvergencia - tempoInicioConvergencia).dbl();
+            
+            // Gravar métricas (sem mostrar no log)
+            recordScalar("tempoConvergencia", tempoTotal);
+            recordScalar("mensagensEnviadas", totalMensagensEnviadas);
+            recordScalar("mensagensRecebidas", totalMensagensRecebidas);
+            
+            // Atualizar métricas globais
+            totalNosConvergiu++;
+            totalMensagensEnviadasRede += totalMensagensEnviadas;
+            totalMensagensRecebidasRede += totalMensagensRecebidas;
+            
+            // Atualizar o tempo de fim da convergência da rede (usar o tempo atual da simulação)
+            double tempoAtual = simTime().dbl();
+            if (tempoAtual > tempoFimConvergenciaRede) {
+                tempoFimConvergenciaRede = tempoAtual;
+            }
+            
+            // Verificar se TODOS os nós convergiram
+            if (totalNosConvergiu >= totalNosRede && !redeConvergiu) {
+                redeConvergiu = true;
+                
+                // Gravar métricas globais
+                double tempoTotalRede = tempoFimConvergenciaRede - tempoInicioRede;
+                int totalMensagensRede = totalMensagensEnviadasRede + totalMensagensRecebidasRede;
+                
+
+                
+                recordScalar("tempoConvergenciaRede", tempoTotalRede);
+                recordScalar("totalMensagensRede", totalMensagensRede);
+                recordScalar("mensagensEnviadasRede", totalMensagensEnviadasRede);
+                recordScalar("mensagensRecebidasRede", totalMensagensRecebidasRede);
+                recordScalar("nosConvergiu", totalNosConvergiu);
+            }
+        }
+    } else {
+        ciclosEstaveis = 0; // Reset contador se tabela mudou
     }
 }
 
@@ -275,6 +356,21 @@ void NoRoteador::finish() {
     }
     EV << "==========================================\n\n";
     
+    // MÉTRICAS FINAIS SIMPLES
+    EV << "\n=== MÉTRICAS FINAIS - Nó " << meuID << " ===\n";
+    int totalMensagens = totalMensagensEnviadas + totalMensagensRecebidas;
+    EV << "Mensagens enviadas: " << totalMensagensEnviadas << "\n";
+    EV << "Mensagens recebidas: " << totalMensagensRecebidas << "\n";
+    EV << "Total de mensagens trocadas: " << totalMensagens << "\n";
+    
+    if (jaConvergiu) {
+        double tempoTotal = (tempoFimConvergencia - tempoInicioConvergencia).dbl();
+        EV << "Tempo de convergência: " << std::fixed << std::setprecision(3) << tempoTotal << "s\n";
+    } else {
+        EV << "Tempo de convergência: N/A (não convergiu)\n";
+    }
+    EV << "==========================================\n\n";
+    
     // Gravar métricas finais
     recordScalar("mensagensEnviadasFinal", totalMensagensEnviadas);
     recordScalar("mensagensRecebidasFinal", totalMensagensRecebidas);
@@ -289,5 +385,44 @@ void NoRoteador::finish() {
         cancelAndDelete(temporizadorEnvio);
         temporizadorEnvio = nullptr;
     }
+    
+    // Mostrar resumo global no final (apenas no último nó)
+    if (meuID == totalNosRede - 1) {
+        mostrarResumoGlobal();
+    }
+}
+
+void NoRoteador::mostrarResumoGlobal() {
+    // Evitar mostrar múltiplas vezes
+    if (resumoGlobalMostrado) {
+        return;
+    }
+    resumoGlobalMostrado = true;
+    
+    EV << "\n";
+    EV << "==========================================\n";
+    EV << "RESUMO GLOBAL DA SIMULAÇÃO\n";
+    EV << "==========================================\n";
+    
+    if (redeConvergiu) {
+        double tempoTotalRede = tempoFimConvergenciaRede - tempoInicioRede;
+        int totalMensagensRede = totalMensagensEnviadasRede + totalMensagensRecebidasRede;
+        
+
+        
+        EV << "REDE COMPLETAMENTE CONVERGIDA!\n";
+        EV << "Tempo total de convergência da rede: " << std::fixed << std::setprecision(3) << tempoTotalRede << "s\n";
+        EV << "Total de mensagens trocadas na rede: " << totalMensagensRede << "\n";
+        EV << "Mensagens enviadas na rede: " << totalMensagensEnviadasRede << "\n";
+        EV << "Mensagens recebidas na rede: " << totalMensagensRecebidasRede << "\n";
+        EV << "Nós que convergiram: " << totalNosConvergiu << "/" << totalNosRede << "\n";
+    } else {
+        EV << "REDE NAO CONVERGIU COMPLETAMENTE\n";
+        EV << "Nós que convergiram: " << totalNosConvergiu << "/" << totalNosRede << "\n";
+        EV << "Tempo de simulação: " << simTime().dbl() << "s\n";
+        EV << "Total de mensagens trocadas na rede: " << (totalMensagensEnviadasRede + totalMensagensRecebidasRede) << "\n";
+    }
+    
+    EV << "==========================================\n\n";
 }
 

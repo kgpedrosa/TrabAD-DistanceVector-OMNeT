@@ -1,8 +1,8 @@
 version 3
-run Malha-0-20250811-12:31:28-1688
+run Malha-0-20250812-17:31:22-13308
 attr configname Malha
-attr datetime 20250811-12:31:28
-attr datetimef 20250811-123128
+attr datetime 20250812-17:31:22
+attr datetimef 20250812-173122
 attr experiment Malha
 attr inifile omnetpp.ini
 attr iterationvars ""
@@ -10,7 +10,7 @@ attr iterationvarsd ""
 attr iterationvarsf ""
 attr measurement ""
 attr network TopologiaMalha
-attr processid 1688
+attr processid 13308
 attr repetition 0
 attr replication #0
 attr resultdir results
@@ -24,27 +24,32 @@ config repeat 1
 config **.recordScalar true
 config **.recordVector true
 
-scalar TopologiaMalha.no[1] tempoConvergencia 8.01
-scalar TopologiaMalha.no[1] mensagensEnviadas 24
-scalar TopologiaMalha.no[1] mensagensRecebidas 22
-scalar TopologiaMalha.no[0] tempoConvergencia 8.01
-scalar TopologiaMalha.no[0] mensagensEnviadas 16
-scalar TopologiaMalha.no[0] mensagensRecebidas 15
-scalar TopologiaMalha.no[5] tempoConvergencia 8.012
-scalar TopologiaMalha.no[5] mensagensEnviadas 24
-scalar TopologiaMalha.no[5] mensagensRecebidas 22
-scalar TopologiaMalha.no[2] tempoConvergencia 8.012
-scalar TopologiaMalha.no[2] mensagensEnviadas 24
-scalar TopologiaMalha.no[2] mensagensRecebidas 22
-scalar TopologiaMalha.no[6] tempoConvergencia 8.016
-scalar TopologiaMalha.no[6] mensagensEnviadas 16
-scalar TopologiaMalha.no[6] mensagensRecebidas 15
-scalar TopologiaMalha.no[4] tempoConvergencia 8.018
-scalar TopologiaMalha.no[4] mensagensEnviadas 24
-scalar TopologiaMalha.no[4] mensagensRecebidas 22
-scalar TopologiaMalha.no[3] tempoConvergencia 8.018
-scalar TopologiaMalha.no[3] mensagensEnviadas 32
-scalar TopologiaMalha.no[3] mensagensRecebidas 29
+scalar TopologiaMalha.no[2] tempoConvergencia 3.02
+scalar TopologiaMalha.no[2] mensagensEnviadas 9
+scalar TopologiaMalha.no[2] mensagensRecebidas 9
+scalar TopologiaMalha.no[5] tempoConvergencia 4.016
+scalar TopologiaMalha.no[5] mensagensEnviadas 12
+scalar TopologiaMalha.no[5] mensagensRecebidas 11
+scalar TopologiaMalha.no[4] tempoConvergencia 4.018
+scalar TopologiaMalha.no[4] mensagensEnviadas 12
+scalar TopologiaMalha.no[4] mensagensRecebidas 10
+scalar TopologiaMalha.no[3] tempoConvergencia 4.02
+scalar TopologiaMalha.no[3] mensagensEnviadas 16
+scalar TopologiaMalha.no[3] mensagensRecebidas 14
+scalar TopologiaMalha.no[1] tempoConvergencia 4.04
+scalar TopologiaMalha.no[1] mensagensEnviadas 12
+scalar TopologiaMalha.no[1] mensagensRecebidas 12
+scalar TopologiaMalha.no[0] tempoConvergencia 6.01
+scalar TopologiaMalha.no[0] mensagensEnviadas 12
+scalar TopologiaMalha.no[0] mensagensRecebidas 11
+scalar TopologiaMalha.no[6] tempoConvergencia 6.016
+scalar TopologiaMalha.no[6] mensagensEnviadas 12
+scalar TopologiaMalha.no[6] mensagensRecebidas 11
+scalar TopologiaMalha.no[6] tempoConvergenciaRede 6.016
+scalar TopologiaMalha.no[6] totalMensagensRede 163
+scalar TopologiaMalha.no[6] mensagensEnviadasRede 85
+scalar TopologiaMalha.no[6] mensagensRecebidasRede 78
+scalar TopologiaMalha.no[6] nosConvergiu 7
 par TopologiaMalha.no[0].porta$o[0].channel typename "\"ned.DelayChannel\""
 par TopologiaMalha.no[0].porta$o[0].channel disabled false
 attr mutable ""
@@ -167,38 +172,38 @@ attr mutable ""
 attr unit s
 par TopologiaMalha.no[0] typename "\"NoRoteador\""
 par TopologiaMalha.no[0] meuNumero 0
-scalar TopologiaMalha.no[0] mensagensEnviadasFinal 26
-scalar TopologiaMalha.no[0] mensagensRecebidasFinal 26
-scalar TopologiaMalha.no[0] tempoConvergenciaFinal 8.01
+scalar TopologiaMalha.no[0] mensagensEnviadasFinal 22
+scalar TopologiaMalha.no[0] mensagensRecebidasFinal 18
+scalar TopologiaMalha.no[0] tempoConvergenciaFinal 6.01
 par TopologiaMalha.no[1] typename "\"NoRoteador\""
 par TopologiaMalha.no[1] meuNumero 1
-scalar TopologiaMalha.no[1] mensagensEnviadasFinal 39
-scalar TopologiaMalha.no[1] mensagensRecebidasFinal 39
-scalar TopologiaMalha.no[1] tempoConvergenciaFinal 8.01
+scalar TopologiaMalha.no[1] mensagensEnviadasFinal 27
+scalar TopologiaMalha.no[1] mensagensRecebidasFinal 28
+scalar TopologiaMalha.no[1] tempoConvergenciaFinal 4.04
 par TopologiaMalha.no[2] typename "\"NoRoteador\""
 par TopologiaMalha.no[2] meuNumero 2
-scalar TopologiaMalha.no[2] mensagensEnviadasFinal 39
-scalar TopologiaMalha.no[2] mensagensRecebidasFinal 39
-scalar TopologiaMalha.no[2] tempoConvergenciaFinal 8.012
+scalar TopologiaMalha.no[2] mensagensEnviadasFinal 24
+scalar TopologiaMalha.no[2] mensagensRecebidasFinal 27
+scalar TopologiaMalha.no[2] tempoConvergenciaFinal 3.02
 par TopologiaMalha.no[3] typename "\"NoRoteador\""
 par TopologiaMalha.no[3] meuNumero 3
-scalar TopologiaMalha.no[3] mensagensEnviadasFinal 52
-scalar TopologiaMalha.no[3] mensagensRecebidasFinal 52
-scalar TopologiaMalha.no[3] tempoConvergenciaFinal 8.018
+scalar TopologiaMalha.no[3] mensagensEnviadasFinal 36
+scalar TopologiaMalha.no[3] mensagensRecebidasFinal 39
+scalar TopologiaMalha.no[3] tempoConvergenciaFinal 4.02
 par TopologiaMalha.no[4] typename "\"NoRoteador\""
 par TopologiaMalha.no[4] meuNumero 4
-scalar TopologiaMalha.no[4] mensagensEnviadasFinal 39
-scalar TopologiaMalha.no[4] mensagensRecebidasFinal 39
-scalar TopologiaMalha.no[4] tempoConvergenciaFinal 8.018
+scalar TopologiaMalha.no[4] mensagensEnviadasFinal 27
+scalar TopologiaMalha.no[4] mensagensRecebidasFinal 27
+scalar TopologiaMalha.no[4] tempoConvergenciaFinal 4.018
 par TopologiaMalha.no[5] typename "\"NoRoteador\""
 par TopologiaMalha.no[5] meuNumero 5
-scalar TopologiaMalha.no[5] mensagensEnviadasFinal 39
-scalar TopologiaMalha.no[5] mensagensRecebidasFinal 39
-scalar TopologiaMalha.no[5] tempoConvergenciaFinal 8.012
+scalar TopologiaMalha.no[5] mensagensEnviadasFinal 27
+scalar TopologiaMalha.no[5] mensagensRecebidasFinal 28
+scalar TopologiaMalha.no[5] tempoConvergenciaFinal 4.016
 par TopologiaMalha.no[6] typename "\"NoRoteador\""
 par TopologiaMalha.no[6] meuNumero 6
-scalar TopologiaMalha.no[6] mensagensEnviadasFinal 26
-scalar TopologiaMalha.no[6] mensagensRecebidasFinal 26
-scalar TopologiaMalha.no[6] tempoConvergenciaFinal 8.016
+scalar TopologiaMalha.no[6] mensagensEnviadasFinal 22
+scalar TopologiaMalha.no[6] mensagensRecebidasFinal 18
+scalar TopologiaMalha.no[6] tempoConvergenciaFinal 6.016
 par TopologiaMalha typename "\"TopologiaMalha\""
 

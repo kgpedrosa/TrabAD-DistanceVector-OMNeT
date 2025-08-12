@@ -36,6 +36,20 @@ protected:
     simtime_t tempoFimConvergencia;
     bool jaConvergiu;
     int ciclosAposConvergencia;
+    
+    // Variáveis para detecção de convergência baseada em estabilidade
+    std::map<int, InformacaoRota> tabelaAnterior;
+    int ciclosEstaveis;
+    
+    // Variáveis estáticas para métricas globais da rede
+    static int totalNosConvergiu;
+    static int totalMensagensEnviadasRede;
+    static int totalMensagensRecebidasRede;
+    static double tempoInicioRede;
+    static double tempoFimConvergenciaRede;
+    static bool redeConvergiu;
+    static int totalNosRede;
+    static bool resumoGlobalMostrado;
 
 protected:
     // Funções virtuais do Omnet++
@@ -50,6 +64,7 @@ private:
     void processarTabelaVizinho(cMessage *msg);
     void verificarConvergencia();
     void mostrarTabelaRoteamento();
+    void mostrarResumoGlobal();
 };
 
 #endif

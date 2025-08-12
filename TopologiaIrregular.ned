@@ -9,6 +9,8 @@ network TopologiaIrregular
         no[7]: NoRoteador { 
             meuNumero = index;
         }
+        
+
     
     connections:
         // Grupo 1: Nós 0,1,2 bem conectados

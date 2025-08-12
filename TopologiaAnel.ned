@@ -9,6 +9,8 @@ network TopologiaAnel
         no[7]: NoRoteador { 
             meuNumero = index;
         }
+        
+
     
     connections:
         // Formar um anel completo

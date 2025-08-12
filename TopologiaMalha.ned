@@ -9,7 +9,7 @@ network TopologiaMalha
         no[7]: NoRoteador { 
             meuNumero = index;
         }
-    
+        
     connections:
         // Linha principal
         no[0].porta++ <--> ned.DelayChannel { delay = 0.01s; } <--> no[1].porta++;

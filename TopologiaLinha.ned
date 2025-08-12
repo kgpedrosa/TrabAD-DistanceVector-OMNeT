@@ -9,6 +9,8 @@ network TopologiaLinha
         no[7]: NoRoteador { 
             meuNumero = index;  // 0, 1, 2, 3, 4, 5, 6
         }
+        
+
     
     connections:
         // Conectar em linha com tempos variados

@@ -1,0 +1,377 @@
+version 3
+run Complexa-0-20250812-17:27:52-13472
+attr configname Complexa
+attr datetime 20250812-17:27:52
+attr datetimef 20250812-172752
+attr experiment Complexa
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network TopologiaComplexa
+attr processid 13472
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config extends General
+config network TopologiaComplexa
+config description "Simulação da Topologia Complexa - estrela + anéis + cruzamentos com 10 nós"
+config sim-time-limit 20s
+config repeat 1
+config **.recordScalar true
+config **.recordVector true
+
+scalar TopologiaComplexa.no[0] tempoConvergencia 2.025
+scalar TopologiaComplexa.no[0] mensagensEnviadas 18
+scalar TopologiaComplexa.no[0] mensagensRecebidas 13
+scalar TopologiaComplexa.no[9] tempoConvergencia 2.095
+scalar TopologiaComplexa.no[9] mensagensEnviadas 10
+scalar TopologiaComplexa.no[9] mensagensRecebidas 10
+scalar TopologiaComplexa.no[1] tempoConvergencia 3.01
+scalar TopologiaComplexa.no[1] mensagensEnviadas 12
+scalar TopologiaComplexa.no[1] mensagensRecebidas 9
+scalar TopologiaComplexa.no[2] tempoConvergencia 3.015
+scalar TopologiaComplexa.no[2] mensagensEnviadas 12
+scalar TopologiaComplexa.no[2] mensagensRecebidas 9
+scalar TopologiaComplexa.no[3] tempoConvergencia 3.02
+scalar TopologiaComplexa.no[3] mensagensEnviadas 12
+scalar TopologiaComplexa.no[3] mensagensRecebidas 9
+scalar TopologiaComplexa.no[4] tempoConvergencia 3.025
+scalar TopologiaComplexa.no[4] mensagensEnviadas 12
+scalar TopologiaComplexa.no[4] mensagensRecebidas 9
+scalar TopologiaComplexa.no[5] tempoConvergencia 3.03
+scalar TopologiaComplexa.no[5] mensagensEnviadas 12
+scalar TopologiaComplexa.no[5] mensagensRecebidas 9
+scalar TopologiaComplexa.no[6] tempoConvergencia 3.035
+scalar TopologiaComplexa.no[6] mensagensEnviadas 12
+scalar TopologiaComplexa.no[6] mensagensRecebidas 9
+scalar TopologiaComplexa.no[7] tempoConvergencia 3.07
+scalar TopologiaComplexa.no[7] mensagensEnviadas 9
+scalar TopologiaComplexa.no[7] mensagensRecebidas 8
+scalar TopologiaComplexa.no[8] tempoConvergencia 3.095
+scalar TopologiaComplexa.no[8] mensagensEnviadas 9
+scalar TopologiaComplexa.no[8] mensagensRecebidas 8
+scalar TopologiaComplexa.no[8] tempoConvergenciaRede 3.095
+scalar TopologiaComplexa.no[8] totalMensagensRede 211
+scalar TopologiaComplexa.no[8] mensagensEnviadasRede 118
+scalar TopologiaComplexa.no[8] mensagensRecebidasRede 93
+scalar TopologiaComplexa.no[8] nosConvergiu 10
+par TopologiaComplexa.no[0].porta$o[0].channel typename "\"ned.DelayChannel\""
+par TopologiaComplexa.no[0].porta$o[0].channel disabled false
+attr mutable ""
+par TopologiaComplexa.no[0].porta$o[0].channel delay 0.01s
+attr mutable ""
+attr unit s
+par TopologiaComplexa.no[1].porta$o[0].channel typename "\"ned.DelayChannel\""
+par TopologiaComplexa.no[1].porta$o[0].channel disabled false
+attr mutable ""
+par TopologiaComplexa.no[1].porta$o[0].channel delay 0.01s
+attr mutable ""
+attr unit s
+par TopologiaComplexa.no[0].porta$o[1].channel typename "\"ned.DelayChannel\""
+par TopologiaComplexa.no[0].porta$o[1].channel disabled false
+attr mutable ""
+par TopologiaComplexa.no[0].porta$o[1].channel delay 0.015s
+attr mutable ""
+attr unit s
+par TopologiaComplexa.no[2].porta$o[0].channel typename "\"ned.DelayChannel\""
+par TopologiaComplexa.no[2].porta$o[0].channel disabled false
+attr mutable ""
+par TopologiaComplexa.no[2].porta$o[0].channel delay 0.015s
+attr mutable ""
+attr unit s
+par TopologiaComplexa.no[0].porta$o[2].channel typename "\"ned.DelayChannel\""
+par TopologiaComplexa.no[0].porta$o[2].channel disabled false
+attr mutable ""
+par TopologiaComplexa.no[0].porta$o[2].channel delay 0.02s
+attr mutable ""
+attr unit s
+par TopologiaComplexa.no[3].porta$o[0].channel typename "\"ned.DelayChannel\""
+par TopologiaComplexa.no[3].porta$o[0].channel disabled false
+attr mutable ""
+par TopologiaComplexa.no[3].porta$o[0].channel delay 0.02s
+attr mutable ""
+attr unit s
+par TopologiaComplexa.no[0].porta$o[3].channel typename "\"ned.DelayChannel\""
+par TopologiaComplexa.no[0].porta$o[3].channel disabled false
+attr mutable ""
+par TopologiaComplexa.no[0].porta$o[3].channel delay 0.025s
+attr mutable ""
+attr unit s
+par TopologiaComplexa.no[4].porta$o[0].channel typename "\"ned.DelayChannel\""
+par TopologiaComplexa.no[4].porta$o[0].channel disabled false
+attr mutable ""
+par TopologiaComplexa.no[4].porta$o[0].channel delay 0.025s
+attr mutable ""
+attr unit s
+par TopologiaComplexa.no[0].porta$o[4].channel typename "\"ned.DelayChannel\""
+par TopologiaComplexa.no[0].porta$o[4].channel disabled false
+attr mutable ""
+par TopologiaComplexa.no[0].porta$o[4].channel delay 0.03s
+attr mutable ""
+attr unit s
+par TopologiaComplexa.no[5].porta$o[0].channel typename "\"ned.DelayChannel\""
+par TopologiaComplexa.no[5].porta$o[0].channel disabled false
+attr mutable ""
+par TopologiaComplexa.no[5].porta$o[0].channel delay 0.03s
+attr mutable ""
+attr unit s
+par TopologiaComplexa.no[0].porta$o[5].channel typename "\"ned.DelayChannel\""
+par TopologiaComplexa.no[0].porta$o[5].channel disabled false
+attr mutable ""
+par TopologiaComplexa.no[0].porta$o[5].channel delay 0.035s
+attr mutable ""
+attr unit s
+par TopologiaComplexa.no[6].porta$o[0].channel typename "\"ned.DelayChannel\""
+par TopologiaComplexa.no[6].porta$o[0].channel disabled false
+attr mutable ""
+par TopologiaComplexa.no[6].porta$o[0].channel delay 0.035s
+attr mutable ""
+attr unit s
+par TopologiaComplexa.no[0].porta$o[6].channel typename "\"ned.DelayChannel\""
+par TopologiaComplexa.no[0].porta$o[6].channel disabled false
+attr mutable ""
+par TopologiaComplexa.no[0].porta$o[6].channel delay 0.04s
+attr mutable ""
+attr unit s
+par TopologiaComplexa.no[7].porta$o[0].channel typename "\"ned.DelayChannel\""
+par TopologiaComplexa.no[7].porta$o[0].channel disabled false
+attr mutable ""
+par TopologiaComplexa.no[7].porta$o[0].channel delay 0.04s
+attr mutable ""
+attr unit s
+par TopologiaComplexa.no[0].porta$o[7].channel typename "\"ned.DelayChannel\""
+par TopologiaComplexa.no[0].porta$o[7].channel disabled false
+attr mutable ""
+par TopologiaComplexa.no[0].porta$o[7].channel delay 0.045s
+attr mutable ""
+attr unit s
+par TopologiaComplexa.no[8].porta$o[0].channel typename "\"ned.DelayChannel\""
+par TopologiaComplexa.no[8].porta$o[0].channel disabled false
+attr mutable ""
+par TopologiaComplexa.no[8].porta$o[0].channel delay 0.045s
+attr mutable ""
+attr unit s
+par TopologiaComplexa.no[0].porta$o[8].channel typename "\"ned.DelayChannel\""
+par TopologiaComplexa.no[0].porta$o[8].channel disabled false
+attr mutable ""
+par TopologiaComplexa.no[0].porta$o[8].channel delay 0.05s
+attr mutable ""
+attr unit s
+par TopologiaComplexa.no[9].porta$o[0].channel typename "\"ned.DelayChannel\""
+par TopologiaComplexa.no[9].porta$o[0].channel disabled false
+attr mutable ""
+par TopologiaComplexa.no[9].porta$o[0].channel delay 0.05s
+attr mutable ""
+attr unit s
+par TopologiaComplexa.no[1].porta$o[1].channel typename "\"ned.DelayChannel\""
+par TopologiaComplexa.no[1].porta$o[1].channel disabled false
+attr mutable ""
+par TopologiaComplexa.no[1].porta$o[1].channel delay 0.055s
+attr mutable ""
+attr unit s
+par TopologiaComplexa.no[3].porta$o[1].channel typename "\"ned.DelayChannel\""
+par TopologiaComplexa.no[3].porta$o[1].channel disabled false
+attr mutable ""
+par TopologiaComplexa.no[3].porta$o[1].channel delay 0.055s
+attr mutable ""
+attr unit s
+par TopologiaComplexa.no[3].porta$o[2].channel typename "\"ned.DelayChannel\""
+par TopologiaComplexa.no[3].porta$o[2].channel disabled false
+attr mutable ""
+par TopologiaComplexa.no[3].porta$o[2].channel delay 0.06s
+attr mutable ""
+attr unit s
+par TopologiaComplexa.no[5].porta$o[1].channel typename "\"ned.DelayChannel\""
+par TopologiaComplexa.no[5].porta$o[1].channel disabled false
+attr mutable ""
+par TopologiaComplexa.no[5].porta$o[1].channel delay 0.06s
+attr mutable ""
+attr unit s
+par TopologiaComplexa.no[5].porta$o[2].channel typename "\"ned.DelayChannel\""
+par TopologiaComplexa.no[5].porta$o[2].channel disabled false
+attr mutable ""
+par TopologiaComplexa.no[5].porta$o[2].channel delay 0.065s
+attr mutable ""
+attr unit s
+par TopologiaComplexa.no[9].porta$o[1].channel typename "\"ned.DelayChannel\""
+par TopologiaComplexa.no[9].porta$o[1].channel disabled false
+attr mutable ""
+par TopologiaComplexa.no[9].porta$o[1].channel delay 0.065s
+attr mutable ""
+attr unit s
+par TopologiaComplexa.no[9].porta$o[2].channel typename "\"ned.DelayChannel\""
+par TopologiaComplexa.no[9].porta$o[2].channel disabled false
+attr mutable ""
+par TopologiaComplexa.no[9].porta$o[2].channel delay 0.07s
+attr mutable ""
+attr unit s
+par TopologiaComplexa.no[7].porta$o[1].channel typename "\"ned.DelayChannel\""
+par TopologiaComplexa.no[7].porta$o[1].channel disabled false
+attr mutable ""
+par TopologiaComplexa.no[7].porta$o[1].channel delay 0.07s
+attr mutable ""
+attr unit s
+par TopologiaComplexa.no[7].porta$o[2].channel typename "\"ned.DelayChannel\""
+par TopologiaComplexa.no[7].porta$o[2].channel disabled false
+attr mutable ""
+par TopologiaComplexa.no[7].porta$o[2].channel delay 0.075s
+attr mutable ""
+attr unit s
+par TopologiaComplexa.no[1].porta$o[2].channel typename "\"ned.DelayChannel\""
+par TopologiaComplexa.no[1].porta$o[2].channel disabled false
+attr mutable ""
+par TopologiaComplexa.no[1].porta$o[2].channel delay 0.075s
+attr mutable ""
+attr unit s
+par TopologiaComplexa.no[2].porta$o[1].channel typename "\"ned.DelayChannel\""
+par TopologiaComplexa.no[2].porta$o[1].channel disabled false
+attr mutable ""
+par TopologiaComplexa.no[2].porta$o[1].channel delay 0.08s
+attr mutable ""
+attr unit s
+par TopologiaComplexa.no[4].porta$o[1].channel typename "\"ned.DelayChannel\""
+par TopologiaComplexa.no[4].porta$o[1].channel disabled false
+attr mutable ""
+par TopologiaComplexa.no[4].porta$o[1].channel delay 0.08s
+attr mutable ""
+attr unit s
+par TopologiaComplexa.no[4].porta$o[2].channel typename "\"ned.DelayChannel\""
+par TopologiaComplexa.no[4].porta$o[2].channel disabled false
+attr mutable ""
+par TopologiaComplexa.no[4].porta$o[2].channel delay 0.085s
+attr mutable ""
+attr unit s
+par TopologiaComplexa.no[6].porta$o[1].channel typename "\"ned.DelayChannel\""
+par TopologiaComplexa.no[6].porta$o[1].channel disabled false
+attr mutable ""
+par TopologiaComplexa.no[6].porta$o[1].channel delay 0.085s
+attr mutable ""
+attr unit s
+par TopologiaComplexa.no[6].porta$o[2].channel typename "\"ned.DelayChannel\""
+par TopologiaComplexa.no[6].porta$o[2].channel disabled false
+attr mutable ""
+par TopologiaComplexa.no[6].porta$o[2].channel delay 0.09s
+attr mutable ""
+attr unit s
+par TopologiaComplexa.no[9].porta$o[3].channel typename "\"ned.DelayChannel\""
+par TopologiaComplexa.no[9].porta$o[3].channel disabled false
+attr mutable ""
+par TopologiaComplexa.no[9].porta$o[3].channel delay 0.09s
+attr mutable ""
+attr unit s
+par TopologiaComplexa.no[9].porta$o[4].channel typename "\"ned.DelayChannel\""
+par TopologiaComplexa.no[9].porta$o[4].channel disabled false
+attr mutable ""
+par TopologiaComplexa.no[9].porta$o[4].channel delay 0.095s
+attr mutable ""
+attr unit s
+par TopologiaComplexa.no[8].porta$o[1].channel typename "\"ned.DelayChannel\""
+par TopologiaComplexa.no[8].porta$o[1].channel disabled false
+attr mutable ""
+par TopologiaComplexa.no[8].porta$o[1].channel delay 0.095s
+attr mutable ""
+attr unit s
+par TopologiaComplexa.no[8].porta$o[2].channel typename "\"ned.DelayChannel\""
+par TopologiaComplexa.no[8].porta$o[2].channel disabled false
+attr mutable ""
+par TopologiaComplexa.no[8].porta$o[2].channel delay 0.1s
+attr mutable ""
+attr unit s
+par TopologiaComplexa.no[2].porta$o[2].channel typename "\"ned.DelayChannel\""
+par TopologiaComplexa.no[2].porta$o[2].channel disabled false
+attr mutable ""
+par TopologiaComplexa.no[2].porta$o[2].channel delay 0.1s
+attr mutable ""
+attr unit s
+par TopologiaComplexa.no[1].porta$o[3].channel typename "\"ned.DelayChannel\""
+par TopologiaComplexa.no[1].porta$o[3].channel disabled false
+attr mutable ""
+par TopologiaComplexa.no[1].porta$o[3].channel delay 0.105s
+attr mutable ""
+attr unit s
+par TopologiaComplexa.no[2].porta$o[3].channel typename "\"ned.DelayChannel\""
+par TopologiaComplexa.no[2].porta$o[3].channel disabled false
+attr mutable ""
+par TopologiaComplexa.no[2].porta$o[3].channel delay 0.105s
+attr mutable ""
+attr unit s
+par TopologiaComplexa.no[3].porta$o[3].channel typename "\"ned.DelayChannel\""
+par TopologiaComplexa.no[3].porta$o[3].channel disabled false
+attr mutable ""
+par TopologiaComplexa.no[3].porta$o[3].channel delay 0.11s
+attr mutable ""
+attr unit s
+par TopologiaComplexa.no[4].porta$o[3].channel typename "\"ned.DelayChannel\""
+par TopologiaComplexa.no[4].porta$o[3].channel disabled false
+attr mutable ""
+par TopologiaComplexa.no[4].porta$o[3].channel delay 0.11s
+attr mutable ""
+attr unit s
+par TopologiaComplexa.no[5].porta$o[3].channel typename "\"ned.DelayChannel\""
+par TopologiaComplexa.no[5].porta$o[3].channel disabled false
+attr mutable ""
+par TopologiaComplexa.no[5].porta$o[3].channel delay 0.115s
+attr mutable ""
+attr unit s
+par TopologiaComplexa.no[6].porta$o[3].channel typename "\"ned.DelayChannel\""
+par TopologiaComplexa.no[6].porta$o[3].channel disabled false
+attr mutable ""
+par TopologiaComplexa.no[6].porta$o[3].channel delay 0.115s
+attr mutable ""
+attr unit s
+par TopologiaComplexa.no[0] typename "\"NoRoteador\""
+par TopologiaComplexa.no[0] meuNumero 0
+scalar TopologiaComplexa.no[0] mensagensEnviadasFinal 63
+scalar TopologiaComplexa.no[0] mensagensRecebidasFinal 71
+scalar TopologiaComplexa.no[0] tempoConvergenciaFinal 2.025
+par TopologiaComplexa.no[1] typename "\"NoRoteador\""
+par TopologiaComplexa.no[1] meuNumero 1
+scalar TopologiaComplexa.no[1] mensagensEnviadasFinal 32
+scalar TopologiaComplexa.no[1] mensagensRecebidasFinal 31
+scalar TopologiaComplexa.no[1] tempoConvergenciaFinal 3.01
+par TopologiaComplexa.no[2] typename "\"NoRoteador\""
+par TopologiaComplexa.no[2] meuNumero 2
+scalar TopologiaComplexa.no[2] mensagensEnviadasFinal 32
+scalar TopologiaComplexa.no[2] mensagensRecebidasFinal 31
+scalar TopologiaComplexa.no[2] tempoConvergenciaFinal 3.015
+par TopologiaComplexa.no[3] typename "\"NoRoteador\""
+par TopologiaComplexa.no[3] meuNumero 3
+scalar TopologiaComplexa.no[3] mensagensEnviadasFinal 32
+scalar TopologiaComplexa.no[3] mensagensRecebidasFinal 31
+scalar TopologiaComplexa.no[3] tempoConvergenciaFinal 3.02
+par TopologiaComplexa.no[4] typename "\"NoRoteador\""
+par TopologiaComplexa.no[4] meuNumero 4
+scalar TopologiaComplexa.no[4] mensagensEnviadasFinal 32
+scalar TopologiaComplexa.no[4] mensagensRecebidasFinal 31
+scalar TopologiaComplexa.no[4] tempoConvergenciaFinal 3.025
+par TopologiaComplexa.no[5] typename "\"NoRoteador\""
+par TopologiaComplexa.no[5] meuNumero 5
+scalar TopologiaComplexa.no[5] mensagensEnviadasFinal 32
+scalar TopologiaComplexa.no[5] mensagensRecebidasFinal 30
+scalar TopologiaComplexa.no[5] tempoConvergenciaFinal 3.03
+par TopologiaComplexa.no[6] typename "\"NoRoteador\""
+par TopologiaComplexa.no[6] meuNumero 6
+scalar TopologiaComplexa.no[6] mensagensEnviadasFinal 32
+scalar TopologiaComplexa.no[6] mensagensRecebidasFinal 30
+scalar TopologiaComplexa.no[6] tempoConvergenciaFinal 3.035
+par TopologiaComplexa.no[7] typename "\"NoRoteador\""
+par TopologiaComplexa.no[7] meuNumero 7
+scalar TopologiaComplexa.no[7] mensagensEnviadasFinal 24
+scalar TopologiaComplexa.no[7] mensagensRecebidasFinal 22
+scalar TopologiaComplexa.no[7] tempoConvergenciaFinal 3.07
+par TopologiaComplexa.no[8] typename "\"NoRoteador\""
+par TopologiaComplexa.no[8] meuNumero 8
+scalar TopologiaComplexa.no[8] mensagensEnviadasFinal 24
+scalar TopologiaComplexa.no[8] mensagensRecebidasFinal 22
+scalar TopologiaComplexa.no[8] tempoConvergenciaFinal 3.095
+par TopologiaComplexa.no[9] typename "\"NoRoteador\""
+par TopologiaComplexa.no[9] meuNumero 9
+scalar TopologiaComplexa.no[9] mensagensEnviadasFinal 35
+scalar TopologiaComplexa.no[9] mensagensRecebidasFinal 39
+scalar TopologiaComplexa.no[9] tempoConvergenciaFinal 2.095
+par TopologiaComplexa typename "\"TopologiaComplexa\""
+
