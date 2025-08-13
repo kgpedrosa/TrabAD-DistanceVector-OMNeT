@@ -5,7 +5,6 @@
 network TopologiaMalha
 {
     submodules:
-        // Criar 7 nós com conexões em malha parcial
         no[7]: NoRoteador { 
             meuNumero = index;
         }

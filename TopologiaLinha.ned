@@ -5,9 +5,8 @@
 network TopologiaLinha
 {
     submodules:
-        // Criar 7 nós em linha
         no[7]: NoRoteador { 
-            meuNumero = index;  // 0, 1, 2, 3, 4, 5, 6
+            meuNumero = index;  
         }
         
 

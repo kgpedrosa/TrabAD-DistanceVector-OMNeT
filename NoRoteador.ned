@@ -1,13 +1,11 @@
-// Definição de um Nó Simples para Roteamento
-// Este é um "molde" que define como cada nó da rede funciona
+// Definição do nó para Roteamento
 
 simple NoRoteador
 {
     parameters:
         int meuNumero;                    // Número único que identifica este nó (como um RG)
-        @display("i=device/router");      // Ícone de roteador na interface gráfica
-        @class(NoRoteador);                // Qual código C++ usar para este nó
-    
+        
+        @display("i=abstract/router");
     gates:
         inout porta[];                    // Portas para conectar com outros nós (como tomadas)
 }

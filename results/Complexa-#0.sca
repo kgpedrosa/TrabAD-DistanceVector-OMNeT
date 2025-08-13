@@ -1,8 +1,8 @@
 version 3
-run Complexa-0-20250812-17:27:52-13472
+run Complexa-0-20250813-09:55:59-7652
 attr configname Complexa
-attr datetime 20250812-17:27:52
-attr datetimef 20250812-172752
+attr datetime 20250813-09:55:59
+attr datetimef 20250813-095559
 attr experiment Complexa
 attr inifile omnetpp.ini
 attr iterationvars ""
@@ -10,7 +10,7 @@ attr iterationvarsd ""
 attr iterationvarsf ""
 attr measurement ""
 attr network TopologiaComplexa
-attr processid 13472
+attr processid 7652
 attr repetition 0
 attr replication #0
 attr resultdir results
@@ -24,41 +24,6 @@ config repeat 1
 config **.recordScalar true
 config **.recordVector true
 
-scalar TopologiaComplexa.no[0] tempoConvergencia 2.025
-scalar TopologiaComplexa.no[0] mensagensEnviadas 18
-scalar TopologiaComplexa.no[0] mensagensRecebidas 13
-scalar TopologiaComplexa.no[9] tempoConvergencia 2.095
-scalar TopologiaComplexa.no[9] mensagensEnviadas 10
-scalar TopologiaComplexa.no[9] mensagensRecebidas 10
-scalar TopologiaComplexa.no[1] tempoConvergencia 3.01
-scalar TopologiaComplexa.no[1] mensagensEnviadas 12
-scalar TopologiaComplexa.no[1] mensagensRecebidas 9
-scalar TopologiaComplexa.no[2] tempoConvergencia 3.015
-scalar TopologiaComplexa.no[2] mensagensEnviadas 12
-scalar TopologiaComplexa.no[2] mensagensRecebidas 9
-scalar TopologiaComplexa.no[3] tempoConvergencia 3.02
-scalar TopologiaComplexa.no[3] mensagensEnviadas 12
-scalar TopologiaComplexa.no[3] mensagensRecebidas 9
-scalar TopologiaComplexa.no[4] tempoConvergencia 3.025
-scalar TopologiaComplexa.no[4] mensagensEnviadas 12
-scalar TopologiaComplexa.no[4] mensagensRecebidas 9
-scalar TopologiaComplexa.no[5] tempoConvergencia 3.03
-scalar TopologiaComplexa.no[5] mensagensEnviadas 12
-scalar TopologiaComplexa.no[5] mensagensRecebidas 9
-scalar TopologiaComplexa.no[6] tempoConvergencia 3.035
-scalar TopologiaComplexa.no[6] mensagensEnviadas 12
-scalar TopologiaComplexa.no[6] mensagensRecebidas 9
-scalar TopologiaComplexa.no[7] tempoConvergencia 3.07
-scalar TopologiaComplexa.no[7] mensagensEnviadas 9
-scalar TopologiaComplexa.no[7] mensagensRecebidas 8
-scalar TopologiaComplexa.no[8] tempoConvergencia 3.095
-scalar TopologiaComplexa.no[8] mensagensEnviadas 9
-scalar TopologiaComplexa.no[8] mensagensRecebidas 8
-scalar TopologiaComplexa.no[8] tempoConvergenciaRede 3.095
-scalar TopologiaComplexa.no[8] totalMensagensRede 211
-scalar TopologiaComplexa.no[8] mensagensEnviadasRede 118
-scalar TopologiaComplexa.no[8] mensagensRecebidasRede 93
-scalar TopologiaComplexa.no[8] nosConvergiu 10
 par TopologiaComplexa.no[0].porta$o[0].channel typename "\"ned.DelayChannel\""
 par TopologiaComplexa.no[0].porta$o[0].channel disabled false
 attr mutable ""
@@ -327,51 +292,61 @@ par TopologiaComplexa.no[0] typename "\"NoRoteador\""
 par TopologiaComplexa.no[0] meuNumero 0
 scalar TopologiaComplexa.no[0] mensagensEnviadasFinal 63
 scalar TopologiaComplexa.no[0] mensagensRecebidasFinal 71
+scalar TopologiaComplexa.no[0] mensagensTrocadas 134
 scalar TopologiaComplexa.no[0] tempoConvergenciaFinal 2.025
 par TopologiaComplexa.no[1] typename "\"NoRoteador\""
 par TopologiaComplexa.no[1] meuNumero 1
 scalar TopologiaComplexa.no[1] mensagensEnviadasFinal 32
 scalar TopologiaComplexa.no[1] mensagensRecebidasFinal 31
+scalar TopologiaComplexa.no[1] mensagensTrocadas 63
 scalar TopologiaComplexa.no[1] tempoConvergenciaFinal 3.01
 par TopologiaComplexa.no[2] typename "\"NoRoteador\""
 par TopologiaComplexa.no[2] meuNumero 2
 scalar TopologiaComplexa.no[2] mensagensEnviadasFinal 32
 scalar TopologiaComplexa.no[2] mensagensRecebidasFinal 31
+scalar TopologiaComplexa.no[2] mensagensTrocadas 63
 scalar TopologiaComplexa.no[2] tempoConvergenciaFinal 3.015
 par TopologiaComplexa.no[3] typename "\"NoRoteador\""
 par TopologiaComplexa.no[3] meuNumero 3
 scalar TopologiaComplexa.no[3] mensagensEnviadasFinal 32
 scalar TopologiaComplexa.no[3] mensagensRecebidasFinal 31
+scalar TopologiaComplexa.no[3] mensagensTrocadas 63
 scalar TopologiaComplexa.no[3] tempoConvergenciaFinal 3.02
 par TopologiaComplexa.no[4] typename "\"NoRoteador\""
 par TopologiaComplexa.no[4] meuNumero 4
 scalar TopologiaComplexa.no[4] mensagensEnviadasFinal 32
 scalar TopologiaComplexa.no[4] mensagensRecebidasFinal 31
+scalar TopologiaComplexa.no[4] mensagensTrocadas 63
 scalar TopologiaComplexa.no[4] tempoConvergenciaFinal 3.025
 par TopologiaComplexa.no[5] typename "\"NoRoteador\""
 par TopologiaComplexa.no[5] meuNumero 5
 scalar TopologiaComplexa.no[5] mensagensEnviadasFinal 32
 scalar TopologiaComplexa.no[5] mensagensRecebidasFinal 30
+scalar TopologiaComplexa.no[5] mensagensTrocadas 62
 scalar TopologiaComplexa.no[5] tempoConvergenciaFinal 3.03
 par TopologiaComplexa.no[6] typename "\"NoRoteador\""
 par TopologiaComplexa.no[6] meuNumero 6
 scalar TopologiaComplexa.no[6] mensagensEnviadasFinal 32
 scalar TopologiaComplexa.no[6] mensagensRecebidasFinal 30
+scalar TopologiaComplexa.no[6] mensagensTrocadas 62
 scalar TopologiaComplexa.no[6] tempoConvergenciaFinal 3.035
 par TopologiaComplexa.no[7] typename "\"NoRoteador\""
 par TopologiaComplexa.no[7] meuNumero 7
 scalar TopologiaComplexa.no[7] mensagensEnviadasFinal 24
 scalar TopologiaComplexa.no[7] mensagensRecebidasFinal 22
+scalar TopologiaComplexa.no[7] mensagensTrocadas 46
 scalar TopologiaComplexa.no[7] tempoConvergenciaFinal 3.07
 par TopologiaComplexa.no[8] typename "\"NoRoteador\""
 par TopologiaComplexa.no[8] meuNumero 8
 scalar TopologiaComplexa.no[8] mensagensEnviadasFinal 24
 scalar TopologiaComplexa.no[8] mensagensRecebidasFinal 22
+scalar TopologiaComplexa.no[8] mensagensTrocadas 46
 scalar TopologiaComplexa.no[8] tempoConvergenciaFinal 3.095
 par TopologiaComplexa.no[9] typename "\"NoRoteador\""
 par TopologiaComplexa.no[9] meuNumero 9
 scalar TopologiaComplexa.no[9] mensagensEnviadasFinal 35
 scalar TopologiaComplexa.no[9] mensagensRecebidasFinal 39
+scalar TopologiaComplexa.no[9] mensagensTrocadas 74
 scalar TopologiaComplexa.no[9] tempoConvergenciaFinal 2.095
 par TopologiaComplexa typename "\"TopologiaComplexa\""
 

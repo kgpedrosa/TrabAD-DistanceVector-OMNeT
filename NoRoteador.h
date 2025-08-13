@@ -4,8 +4,8 @@
 #include <omnetpp.h>
 #include <map>
 #include <vector>
-#include <string>
 
+using namespace std;
 using namespace omnetpp;
 
 // Estrutura para armazenar informações de uma rota
@@ -20,11 +20,11 @@ protected:
     int meuID;
     
     // Informações dos vizinhos
-    std::vector<int> listaVizinhos;
-    std::map<int, double> custoVizinhos;
+    vector<int> listaVizinhos;
+    map<int, double> custoVizinhos;
     
     // Tabela de roteamento: destino -> informações da rota
-    std::map<int, InformacaoRota> tabelaRoteamento;
+    map<int, InformacaoRota> tabelaRoteamento;
     
     // Timer para envio periódico
     cMessage *temporizadorEnvio;

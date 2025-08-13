@@ -3,9 +3,10 @@
 
 #include <algorithm>
 #include <iomanip>
-#include <sstream>
 
 Define_Module(NoRoteador);
+
+using namespace std;
 
 // Inicialização das variáveis estáticas para métricas globais
 int NoRoteador::totalNosConvergiu = 0;
@@ -39,7 +40,7 @@ void NoRoteador::initialize() {
         totalMensagensEnviadasRede = 0;
         totalMensagensRecebidasRede = 0;
         tempoInicioRede = simTime().dbl();
-        tempoFimConvergenciaRede = 0.0; // IMPORTANTE: reinicializar!
+        tempoFimConvergenciaRede = 0.0; 
         redeConvergiu = false;
         resumoGlobalMostrado = false;
         
@@ -100,7 +101,7 @@ void NoRoteador::descobrirVizinhos() {
         listaVizinhos.push_back(idVizinho);
         
         EV << "Nó " << meuID << " descobriu vizinho " << idVizinho 
-           << " (custo: " << std::fixed << std::setprecision(3) << custoComunicacao << "s)\n";
+           << " (custo: " << fixed << setprecision(3) << custoComunicacao << "s)\n";
     }
 }
 
@@ -138,10 +139,10 @@ void NoRoteador::handleMessage(cMessage *msg) {
 
 void NoRoteador::enviarMinhaTabela() {
     // Preparar dados da tabela
-    std::vector<int> destinos;
-    std::vector<double> custos;
-    
-    for (auto& entrada : tabelaRoteamento) {
+        vector<int> destinos;
+        vector<double> custos;
+        
+        for (auto& entrada : tabelaRoteamento) {
         destinos.push_back(entrada.first);
         custos.push_back(entrada.second.custo);
     }
@@ -206,17 +207,17 @@ void NoRoteador::processarTabelaVizinho(cMessage *msg) {
             
             EV << "Nó " << meuID << " aprendeu rota para " << destino 
                << " via " << vizinhoQueEnviou << " (custo: " 
-               << std::fixed << std::setprecision(3) << custoTotal << "s)\n";
+               << fixed << setprecision(3) << custoTotal << "s)\n";
         }
         else if (custoTotal < it->second.custo) {
             // Caminho melhor encontrado
             it->second.custo = custoTotal;
             it->second.proximoVizinho = vizinhoQueEnviou;
-            tabelaMudou = true;
-            
+                tabelaMudou = true;
+                
             EV << "Nó " << meuID << " melhorou rota para " << destino 
                << " via " << vizinhoQueEnviou << " (custo: " 
-               << std::fixed << std::setprecision(3) << custoTotal << "s)\n";
+               << fixed << setprecision(3) << custoTotal << "s)\n";
         }
     }
     
@@ -235,12 +236,12 @@ void NoRoteador::verificarConvergencia() {
     
     // Comparar com a tabela anterior
     if (!tabelaAnterior.empty()) {
-        for (auto& entrada : tabelaRoteamento) {
+    for (auto& entrada : tabelaRoteamento) {
             int destino = entrada.first;
             auto entradaAnterior = tabelaAnterior.find(destino);
             
             if (entradaAnterior == tabelaAnterior.end() || 
-                std::abs(entrada.second.custo - entradaAnterior->second.custo) > 0.001) {
+                abs(entrada.second.custo - entradaAnterior->second.custo) > 0.001) {
                 tabelaEstavel = false;
                 break;
             }
@@ -258,12 +259,7 @@ void NoRoteador::verificarConvergencia() {
         if (ciclosEstaveis >= 3 && !jaConvergiu) {
             jaConvergiu = true;
             tempoFimConvergencia = simTime();
-            double tempoTotal = (tempoFimConvergencia - tempoInicioConvergencia).dbl();
-            
-            // Gravar métricas (sem mostrar no log)
-            recordScalar("tempoConvergencia", tempoTotal);
-            recordScalar("mensagensEnviadas", totalMensagensEnviadas);
-            recordScalar("mensagensRecebidas", totalMensagensRecebidas);
+            double tempoTotal = (tempoFimConvergencia - tempoInicioConvergencia).dbl();           
             
             // Atualizar métricas globais
             totalNosConvergiu++;
@@ -284,13 +280,6 @@ void NoRoteador::verificarConvergencia() {
                 double tempoTotalRede = tempoFimConvergenciaRede - tempoInicioRede;
                 int totalMensagensRede = totalMensagensEnviadasRede + totalMensagensRecebidasRede;
                 
-
-                
-                recordScalar("tempoConvergenciaRede", tempoTotalRede);
-                recordScalar("totalMensagensRede", totalMensagensRede);
-                recordScalar("mensagensEnviadasRede", totalMensagensEnviadasRede);
-                recordScalar("mensagensRecebidasRede", totalMensagensRecebidasRede);
-                recordScalar("nosConvergiu", totalNosConvergiu);
             }
         }
     } else {
@@ -304,9 +293,9 @@ void NoRoteador::mostrarTabelaRoteamento() {
     EV << "--------|---------|--------\n";
     
     for (auto& entrada : tabelaRoteamento) {
-        EV << std::setw(7) << entrada.first << " | "
-           << std::setw(7) << std::fixed << std::setprecision(3) << entrada.second.custo << " | "
-           << std::setw(7) << entrada.second.proximoVizinho << "\n";
+        EV << setw(7) << entrada.first << " | "
+           << setw(7) << fixed << setprecision(3) << entrada.second.custo << " | "
+           << setw(7) << entrada.second.proximoVizinho << "\n";
     }
     EV << "\n";
 }
@@ -334,17 +323,17 @@ void NoRoteador::finish() {
             double custoDireto = custoVizinho->second;
             if (destino == proximoVizinho) {
                 // Para o próprio vizinho, o custo deve ser o custo direto
-                if (std::abs(custoCalculado - custoDireto) > 0.001) {
+                if (abs(custoCalculado - custoDireto) > 0.001) {
                     EV << "Inconsistência: Nó " << destino << " - custo calculado (" 
                        << custoCalculado << "s) != custo direto (" << custoDireto << "s)\n";
                     tabelaConsistente = false;
                 } else {
                     EV << "Nó " << destino << " - rota direta consistente (" 
-                       << std::fixed << std::setprecision(3) << custoCalculado << "s)\n";
+                       << fixed << setprecision(3) << custoCalculado << "s)\n";
                 }
             } else {
                 EV << "Nó " << destino << " - rota via " << proximoVizinho 
-                   << " (" << std::fixed << std::setprecision(3) << custoCalculado << "s)\n";
+                   << " (" << fixed << setprecision(3) << custoCalculado << "s)\n";
             }
         }
     }
@@ -365,7 +354,7 @@ void NoRoteador::finish() {
     
     if (jaConvergiu) {
         double tempoTotal = (tempoFimConvergencia - tempoInicioConvergencia).dbl();
-        EV << "Tempo de convergência: " << std::fixed << std::setprecision(3) << tempoTotal << "s\n";
+        EV << "Tempo de convergência: " << fixed << setprecision(3) << tempoTotal << "s\n";
     } else {
         EV << "Tempo de convergência: N/A (não convergiu)\n";
     }
@@ -374,6 +363,7 @@ void NoRoteador::finish() {
     // Gravar métricas finais
     recordScalar("mensagensEnviadasFinal", totalMensagensEnviadas);
     recordScalar("mensagensRecebidasFinal", totalMensagensRecebidas);
+    recordScalar("mensagensTrocadas", totalMensagens);
     
     if (jaConvergiu) {
         double tempoTotal = (tempoFimConvergencia - tempoInicioConvergencia).dbl();
@@ -411,7 +401,7 @@ void NoRoteador::mostrarResumoGlobal() {
 
         
         EV << "REDE COMPLETAMENTE CONVERGIDA!\n";
-        EV << "Tempo total de convergência da rede: " << std::fixed << std::setprecision(3) << tempoTotalRede << "s\n";
+        EV << "Tempo total de convergência da rede: " << fixed << setprecision(3) << tempoTotalRede << "s\n";
         EV << "Total de mensagens trocadas na rede: " << totalMensagensRede << "\n";
         EV << "Mensagens enviadas na rede: " << totalMensagensEnviadasRede << "\n";
         EV << "Mensagens recebidas na rede: " << totalMensagensRecebidasRede << "\n";

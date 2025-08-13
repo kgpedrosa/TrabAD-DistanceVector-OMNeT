@@ -18,10 +18,8 @@
 
 class TabelaRoteamento;
 /**
- * Class generated from <tt>Mensagens.msg:10</tt> by opp_msgtool.
+ * Class generated from <tt>Mensagens.msg:5</tt> by opp_msgtool.
  * <pre>
- * // Esta mensagem contém a tabela de roteamento de um nó
- * // É como se fosse uma "carta" dizendo: "Ei vizinho, eu sei chegar nestes lugares!"
  * packet TabelaRoteamento
  * 
  * {

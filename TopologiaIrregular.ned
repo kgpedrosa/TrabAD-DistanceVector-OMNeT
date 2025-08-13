@@ -5,7 +5,6 @@
 network TopologiaIrregular
 {
     submodules:
-        // Criar 7 nós com topologia irregular complexa
         no[7]: NoRoteador { 
             meuNumero = index;
         }
@@ -19,7 +18,7 @@ network TopologiaIrregular
         no[0].porta++ <--> ned.DelayChannel { delay = 0.02s; } <--> no[2].porta++;
         
         // Gargalo: apenas nó 2 conecta aos outros grupos
-        no[2].porta++ <--> ned.DelayChannel { delay = 0.05s; } <--> no[3].porta++;  // Gargalo lento!
+        no[2].porta++ <--> ned.DelayChannel { delay = 0.05s; } <--> no[3].porta++; 
         
         // Grupo 2: Nós 3,4,5 formam triângulo
         no[3].porta++ <--> ned.DelayChannel { delay = 0.01s; } <--> no[4].porta++;
@@ -30,5 +29,5 @@ network TopologiaIrregular
         no[5].porta++ <--> ned.DelayChannel { delay = 0.025s; } <--> no[6].porta++;
         
         // Atalho de emergência: conecta os dois grupos diretamente
-        no[1].porta++ <--> ned.DelayChannel { delay = 0.08s; } <--> no[4].porta++;  // Atalho muito lento
+        no[1].porta++ <--> ned.DelayChannel { delay = 0.08s; } <--> no[4].porta++;  
 }

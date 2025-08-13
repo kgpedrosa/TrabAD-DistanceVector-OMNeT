@@ -1,8 +1,8 @@
 version 3
-run Linha-0-20250812-17:28:09-13472
+run Linha-0-20250813-01:34:14-9032
 attr configname Linha
-attr datetime 20250812-17:28:09
-attr datetimef 20250812-172809
+attr datetime 20250813-01:34:14
+attr datetimef 20250813-013414
 attr experiment Linha
 attr inifile omnetpp.ini
 attr iterationvars ""
@@ -10,7 +10,7 @@ attr iterationvarsd ""
 attr iterationvarsf ""
 attr measurement ""
 attr network TopologiaLinha
-attr processid 13472
+attr processid 9032
 attr repetition 0
 attr replication #0
 attr resultdir results
@@ -24,32 +24,6 @@ config repeat 1
 config **.recordScalar true
 config **.recordVector true
 
-scalar TopologiaLinha.no[3] tempoConvergencia 5.03
-scalar TopologiaLinha.no[3] mensagensEnviadas 10
-scalar TopologiaLinha.no[3] mensagensRecebidas 10
-scalar TopologiaLinha.no[2] tempoConvergencia 6.01
-scalar TopologiaLinha.no[2] mensagensEnviadas 12
-scalar TopologiaLinha.no[2] mensagensRecebidas 11
-scalar TopologiaLinha.no[4] tempoConvergencia 6.03
-scalar TopologiaLinha.no[4] mensagensEnviadas 12
-scalar TopologiaLinha.no[4] mensagensRecebidas 12
-scalar TopologiaLinha.no[5] tempoConvergencia 7.01
-scalar TopologiaLinha.no[5] mensagensEnviadas 14
-scalar TopologiaLinha.no[5] mensagensRecebidas 13
-scalar TopologiaLinha.no[1] tempoConvergencia 7.02
-scalar TopologiaLinha.no[1] mensagensEnviadas 14
-scalar TopologiaLinha.no[1] mensagensRecebidas 14
-scalar TopologiaLinha.no[0] tempoConvergencia 10.01
-scalar TopologiaLinha.no[0] mensagensEnviadas 10
-scalar TopologiaLinha.no[0] mensagensRecebidas 10
-scalar TopologiaLinha.no[6] tempoConvergencia 10.02
-scalar TopologiaLinha.no[6] mensagensEnviadas 10
-scalar TopologiaLinha.no[6] mensagensRecebidas 10
-scalar TopologiaLinha.no[6] tempoConvergenciaRede 10.02
-scalar TopologiaLinha.no[6] totalMensagensRede 162
-scalar TopologiaLinha.no[6] mensagensEnviadasRede 82
-scalar TopologiaLinha.no[6] mensagensRecebidasRede 80
-scalar TopologiaLinha.no[6] nosConvergiu 7
 par TopologiaLinha.no[0].porta$o[0].channel typename "\"ned.DelayChannel\""
 par TopologiaLinha.no[0].porta$o[0].channel disabled false
 attr mutable ""
@@ -126,36 +100,43 @@ par TopologiaLinha.no[0] typename "\"NoRoteador\""
 par TopologiaLinha.no[0] meuNumero 0
 scalar TopologiaLinha.no[0] mensagensEnviadasFinal 15
 scalar TopologiaLinha.no[0] mensagensRecebidasFinal 12
+scalar TopologiaLinha.no[0] mensagensTrocadas 27
 scalar TopologiaLinha.no[0] tempoConvergenciaFinal 10.01
 par TopologiaLinha.no[1] typename "\"NoRoteador\""
 par TopologiaLinha.no[1] meuNumero 1
 scalar TopologiaLinha.no[1] mensagensEnviadasFinal 24
 scalar TopologiaLinha.no[1] mensagensRecebidasFinal 26
+scalar TopologiaLinha.no[1] mensagensTrocadas 50
 scalar TopologiaLinha.no[1] tempoConvergenciaFinal 7.02
 par TopologiaLinha.no[2] typename "\"NoRoteador\""
 par TopologiaLinha.no[2] meuNumero 2
 scalar TopologiaLinha.no[2] mensagensEnviadasFinal 22
 scalar TopologiaLinha.no[2] mensagensRecebidasFinal 22
+scalar TopologiaLinha.no[2] mensagensTrocadas 44
 scalar TopologiaLinha.no[2] tempoConvergenciaFinal 6.01
 par TopologiaLinha.no[3] typename "\"NoRoteador\""
 par TopologiaLinha.no[3] meuNumero 3
 scalar TopologiaLinha.no[3] mensagensEnviadasFinal 20
 scalar TopologiaLinha.no[3] mensagensRecebidasFinal 22
+scalar TopologiaLinha.no[3] mensagensTrocadas 42
 scalar TopologiaLinha.no[3] tempoConvergenciaFinal 5.03
 par TopologiaLinha.no[4] typename "\"NoRoteador\""
 par TopologiaLinha.no[4] meuNumero 4
 scalar TopologiaLinha.no[4] mensagensEnviadasFinal 22
 scalar TopologiaLinha.no[4] mensagensRecebidasFinal 22
+scalar TopologiaLinha.no[4] mensagensTrocadas 44
 scalar TopologiaLinha.no[4] tempoConvergenciaFinal 6.03
 par TopologiaLinha.no[5] typename "\"NoRoteador\""
 par TopologiaLinha.no[5] meuNumero 5
 scalar TopologiaLinha.no[5] mensagensEnviadasFinal 24
 scalar TopologiaLinha.no[5] mensagensRecebidasFinal 26
+scalar TopologiaLinha.no[5] mensagensTrocadas 50
 scalar TopologiaLinha.no[5] tempoConvergenciaFinal 7.01
 par TopologiaLinha.no[6] typename "\"NoRoteador\""
 par TopologiaLinha.no[6] meuNumero 6
 scalar TopologiaLinha.no[6] mensagensEnviadasFinal 15
 scalar TopologiaLinha.no[6] mensagensRecebidasFinal 12
+scalar TopologiaLinha.no[6] mensagensTrocadas 27
 scalar TopologiaLinha.no[6] tempoConvergenciaFinal 10.02
 par TopologiaLinha typename "\"TopologiaLinha\""
 
